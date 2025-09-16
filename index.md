@@ -1,18 +1,9 @@
----
-layout: default
-title: "Projecte 1 de Implantació de Sistemes Operatius"
----
+# Projecte 1 de Implantació de Sistemes Operatius"
 
 Aquest repositori conté tot el material del Projecte 1 de  Implantació de Sistemes Operatius fet per l'Iker Espinosa López.
 
 - Índex als sprints del Projecte 1.
 
-
-## Licencia
-
-El contenido está bajo licencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
-
-## Contenido del curso
 
 ### [Sprint 1: Instal·lació i Configuració Inicial](SP1/SP1.md)
 ### [Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers](SP2/SP2.md)
