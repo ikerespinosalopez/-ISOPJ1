@@ -1,13 +1,12 @@
 ---
 layout: default
-title: "Curso de Machine Learning"
+title: "Projecte 1 de Implantació de Sistemes Operatius"
 ---
 
-Este repositorio contiene el material del curso de Machine Learning desarrollado por Mireia Consarnau.
+Aquest repositori conté tot el material del Projecte 1 de  Implantació de Sistemes Operatius fet per l'Iker Espinosa López.
 
-- Índice y enlaces a las unidades del curso.
-- Recursos en formato PDF, vídeos, y Google Colab.
-- Código y ejemplos prácticos.
+- Índex als sprints del Projecte 1.
+
 
 ## Licencia
 
@@ -16,6 +15,7 @@ El contenido está bajo licencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
 ## Contenido del curso
 
 ### [Unidad 1. Fundamentos de la Inteligencia Artificial y el Aprendizaje Automático](unidad1/unidad1.md)  
+### 
 ### [Unidad 2. Preprocesamiento de datos: preparando la base del aprendizaje automático](unidad2/unidad2.md)  
 ### [Unidad 3. Aprendizaje supervisado: modelos para análisis predictivo](unidad3/unidad3.md)  
 ### [Unidad 4. Aprendizaje no supervisado: modelos de agrupación y análisis de patrones](unidad4/unidad4.md)  
