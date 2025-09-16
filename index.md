@@ -1,4 +1,4 @@
-# Projecte 1 de Implantació de Sistemes Operatius"
+# Projecte 1 de Implantació de Sistemes Operatius
 
 Aquest repositori conté tot el material del Projecte 1 de  Implantació de Sistemes Operatius fet per l'Iker Espinosa López.
 
