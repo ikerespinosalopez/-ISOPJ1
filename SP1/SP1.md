@@ -1,7 +1,7 @@
 
 ---
 layout: default
-title: "Sprint 1: INstal·lació i COnfiguració INicial"
+title: "Sprint 1: Instal·lació i Configuració Inicial"
 ---
 
 ## Virtualització i instal·lació del SO Ubuntu
