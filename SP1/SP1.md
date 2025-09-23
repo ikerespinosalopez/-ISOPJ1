@@ -37,6 +37,8 @@ Continuem amb el procès habitual de la instal·lació i esperem a que termini. 
 
 ## Llicenciament
 
+Saber on és la llicencia y dcoumentar les que te el ubuntu y pe que  tal tal
+
 ## Gestors d'arrencada per a instal·acions DUALS
 
 ## Punts de restauració
