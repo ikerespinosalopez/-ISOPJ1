@@ -52,6 +52,7 @@ Els repositoris es poden dividir segons el tipus:
 - Restricted: controladors privatius.
 - Universe: programari lliure mantingut per la comunitat.
 - Multiverse: programari amb problemes de llicència o restriccions legals.
+  
 ## Gestors d'arrencada per a instal·acions DUALS
 
 ## Punts de restauració
