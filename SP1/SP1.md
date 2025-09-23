@@ -33,7 +33,7 @@ Continuem amb el procès habitual de la instal·lació i esperem a que termini.
 
 
 
-## Llicènciament
+## Llicenciament
 
 ## Gestors d'arrencada per a instal·acions DUALS
 
