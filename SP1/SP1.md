@@ -8,6 +8,8 @@ Primer obrim VirtualBox i creem una nova màquina virtual. Seleccionem la ISO d'
 
 ![Imatge de la màquina virtual creada amb els paràmetres configurats](/Imatges/Captura1.png)
 
+a
+
 Obrim la MV i continuem amb la instal·lació del SO Ubuntu.
 ## Llicènciament
 
