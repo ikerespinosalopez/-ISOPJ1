@@ -29,6 +29,7 @@ Continuem amb el procès habitual de la instal·lació i esperem a que termini. 
 
 <img width="796" height="649" alt="image" src="https://github.com/user-attachments/assets/24abf174-2785-45b0-acd4-6434d11f700a" />
 
+<img width="1285" height="856" alt="image" src="https://github.com/user-attachments/assets/b7edc55c-f58a-475f-be62-9966115d2944" />
 
 
 
