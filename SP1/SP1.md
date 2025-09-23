@@ -27,7 +27,9 @@ Un cop fet, creem el nostre usuari.
 
 <img width="796" height="649" alt="image" src="https://github.com/user-attachments/assets/f821b02d-7c27-4c66-810b-01474cd75422" />
 
-Continuem amb el procès habitual de la instal·lació i esperem a que termini.
+Continuem amb el procès habitual de la instal·lació i esperem a que termini. Reiniciem el sistema i ja tindriem l'instal·lació realitzada.
+
+<img width="796" height="649" alt="image" src="https://github.com/user-attachments/assets/24abf174-2785-45b0-acd4-6434d11f700a" />
 
 
 
