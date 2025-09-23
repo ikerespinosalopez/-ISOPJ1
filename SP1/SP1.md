@@ -21,7 +21,13 @@ Fem les particions adients, en aquest cas /home, /boot, /boot/efi, / i swap.
 ![Imatge de les particions creades.](/Imatges/Captura4.png)
 
 Un cop fet, creem el nostre usuari.
+
 <img width="796" height="649" alt="image" src="https://github.com/user-attachments/assets/f821b02d-7c27-4c66-810b-01474cd75422" />
+
+Continuem amb el procès habitual de la instal·lació i esperem a que termini.
+
+
+
 
 
 ## Llicènciament
