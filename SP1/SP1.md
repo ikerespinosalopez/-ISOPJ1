@@ -39,6 +39,21 @@ Continuem amb el procès habitual de la instal·lació i esperem a que termini. 
 
 Saber on és la llicencia y dcoumentar les que te el ubuntu y pe que  tal tal
 
+Ubuntu és una distribució basada en Debian que inclou principalment programari amb llicències lliures i de codi obert. Cada paquet instal·lat a Ubuntu té un fitxer amb la llicència i els drets d'autor que es troba a /usr/share/doc/paquet/copyright.
+
+Podem trobar les següents llicències que són les més habituals:
+- GPL (General Public License): obliga a distriubir el codi font i les modificacions.
+- LGPL: semblant però més flexible per a biblioteques compartides.
+- MIT/BSD/Apache: llicències permissives, permeten ús comercial i redistribució amb algunes restriccions.
+- Privatives (EULA): aplicades a alguns components com els controladors.
+
+Legalment el sistema base es troba sota llicències lliures, les aplicacions de tercers poden variar segons el repositori d'origen i la documentació està sota llicències com la Creative Commons.
+
+Els repositoris es poden dividir segons el tipus:
+- Main: programari lliure.
+- Restricted: controladors privatius.
+- Universe: programari lliure mantingut per la comunitat.
+- Multiverse: programari amb problemes de llicència o restriccions legals.
 ## Gestors d'arrencada per a instal·acions DUALS
 
 ## Punts de restauració
