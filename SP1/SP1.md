@@ -8,7 +8,9 @@ Primer obrim VirtualBox i creem una nova màquina virtual. Seleccionem la ISO d'
 
 ![Imatge de la màquina virtual creada amb els paràmetres configurats](/Imatges/Captura1.png)
 
-a
+A continuació procedim amb l'instal·lació fins arribar al punt on hem de configurar el disc i escollim fer les particions manuals. Seleccionem el nostre disc.
+
+![Imatge de la selecció del disc dur per fer les particions manualment.](/Imatges/Captura2.png)
 
 Obrim la MV i continuem amb la instal·lació del SO Ubuntu.
 ## Llicènciament
