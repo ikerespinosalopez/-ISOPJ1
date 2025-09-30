@@ -31,9 +31,6 @@ Continuem amb el procès habitual de la instal·lació i esperem a que termini. 
 
 <img width="1285" height="856" alt="image" src="https://github.com/user-attachments/assets/b7edc55c-f58a-475f-be62-9966115d2944" />
 
-
-
-
 ## Llicenciament
 
 Saber on és la llicencia y dcoumentar les que te el ubuntu y pe que  tal tal
@@ -55,6 +52,13 @@ Els repositoris es poden dividir segons el tipus:
 - Multiverse: programari amb problemes de llicència o restriccions legals.
   
 ## Gestors d'arrencada per a instal·acions DUALS
+Volem instal·lar Windows en mode DUAL en la nostra màquina virtual amb Ubuntu que hem creat anteriorment. Veurem dos escenaris diferents segons l'ordre d'instal·lació i l'ubicació de la misma. Per fer-ho, primer ens hem de descarregar la ISO de Windows y obrir el VirtualBox.
+
+### Escenari 1 Instal·lar Windows en DUAL desprès d'Ubuntu
+
+
+
+### Escenari 2 Instal·lar Windows i Ubuntu separats en el mateix disc
 
 ## Punts de restauració
 
