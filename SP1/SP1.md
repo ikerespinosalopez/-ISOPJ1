@@ -56,6 +56,10 @@ Volem instal·lar Windows en mode DUAL en la nostra màquina virtual amb Ubuntu 
 
 ### Escenari 1 Instal·lar Windows en DUAL desprès d'Ubuntu
 
+Primer hem de preparar amb la nostra màquina Ubuntu tot lo necessari per a fer la instal·lació DUAL. La obrim i accedim al gestor de particions.
+
+
+
 
 
 ### Escenari 2 Instal·lar Windows i Ubuntu separats en el mateix disc
