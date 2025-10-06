@@ -130,6 +130,7 @@ Ara hem de modificar l'arxiu del grub amb la comanda "nano /etc/default/grub". E
 
 Guardem l'arxiu i ja podem apagar la màquina i treiem la ISO de W10 per a iniciar-la i comprovar que podem accedir a ambdos sistemes operatius.
 
+<img width="849" height="374" alt="image" src="https://github.com/user-attachments/assets/500e3534-0172-4c87-80c5-e1c773eb1e81" />
 
 
 
