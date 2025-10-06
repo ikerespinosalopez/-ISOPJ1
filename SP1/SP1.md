@@ -58,13 +58,13 @@ Volem instal·lar Windows en mode DUAL en la nostra màquina virtual amb Ubuntu 
 
 Primer hem de preparar amb la nostra màquina Ubuntu tot lo necessari per a fer la instal·lació DUAL. Inserim la ISO de W10 Enterprise
 
-CAPTURAAAA
+<img width="951" height="463" alt="image" src="https://github.com/user-attachments/assets/8f10a503-4758-491c-bd81-1db90af77031" />
 
 Procedim amb la instal·lació fins a arribar a les particions, on haurem de seleccionar l'espai buit que hem deixat abans i fer clic a Nou. 
 
 <img width="852" height="821" alt="image" src="https://github.com/user-attachments/assets/111f7c0c-7bd1-483b-8d0f-177d7d174fb4" />
 
-Seleccionem tot l'espai disponible i fem clic a següent per a acabar de fer la instal·lació. 
+Seleccionem tot l'espai disponible i fem clic a següent per a acabar de fer la instal·lació. Quan acabi es reiniciarà la màquina i s'obrirà el Windows 
   
 
 ### Escenari 2 Instal·lar Windows i Ubuntu separats en el mateix disc
@@ -83,4 +83,37 @@ si nuevo aplicar no deja instalar es porque no esta activada la efi en los ajust
 
 1 maquina virtual que solo se enciende windows > emmagatz. parametres solo iso supergrub esc > boot > supergrub. segona opcio detect > trobar el linux (el primer) y ya per a iniciar el sistema 
 - descargar iso supergrub ftp
-otra mv parametres 
+
+sudo su
+apt install --reinstall grub-pc (captura)
+grub-install /dev/sda (captura)
+da error efi
+cd /boot
+cd efi/ (si no esta mkdir efi)
+ls
+fdisk -l 
+buscar particion sistema efi  por ejemplo /dev/sda6 (captura)
+mount /dev/sda6 /boot/efi (captura)
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Ubuntu (captura)
+update-grub  > trobar windows y linux (captura)
+apt install efibootmgr
+efibootmgr > ves el orden de arranque y si el primero es el windows hay que cambiarlo por el ubuntu (efibootmgr -o 0004,0002 (el orden que sea))
+nano etc default grub
+  GRUB_TIMEOUT_STYLE=hidden comentada
+  GRUB_TIMEOUT=0 comentada 
+  descomentada GRUB_DISABLE_OS_PROBER=false
+apagamos y quitamos la iso
+tiene que salir el grub y probar que funcionen los dos
+
+
+
+
+
+
+
+
+
+
+
+
+
