@@ -56,11 +56,16 @@ Volem instal·lar Windows en mode DUAL en la nostra màquina virtual amb Ubuntu 
 
 ### Escenari 1 Instal·lar Windows en DUAL desprès d'Ubuntu
 
-Primer hem de preparar amb la nostra màquina Ubuntu tot lo necessari per a fer la instal·lació DUAL. La obrim i accedim al gestor de particions.
+Primer hem de preparar amb la nostra màquina Ubuntu tot lo necessari per a fer la instal·lació DUAL. Inserim la ISO de W10 Enterprise
 
+CAPTURAAAA
 
+Procedim amb la instal·lació fins a arribar a les particions, on haurem de seleccionar l'espai buit que hem deixat abans i fer clic a Nou. 
 
+<img width="852" height="821" alt="image" src="https://github.com/user-attachments/assets/111f7c0c-7bd1-483b-8d0f-177d7d174fb4" />
 
+Seleccionem tot l'espai disponible i fem clic a següent per a acabar de fer la instal·lació. 
+  
 
 ### Escenari 2 Instal·lar Windows i Ubuntu separats en el mateix disc
 
@@ -70,3 +75,12 @@ Primer hem de preparar amb la nostra màquina Ubuntu tot lo necessari per a fer 
 
 ## Comandes generals i instal·lacions
 
+# APUNTES BORRAR!!!!!
+
+Ubuntu altres 40gb instalar w10 enterprise (meter windows en emmagatzematge) de instalacion solo pantalla particiones, cuenta local unirse a un dominio
+si nuevo aplicar no deja instalar es porque no esta activada la efi en los ajustes de vbox 
+
+
+1 maquina virtual que solo se enciende windows > emmagatz. parametres solo iso supergrub esc > boot > supergrub. segona opcio detect > trobar el linux (el primer) y ya per a iniciar el sistema 
+- descargar iso supergrub ftp
+otra mv parametres 
