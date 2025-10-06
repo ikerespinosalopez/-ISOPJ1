@@ -114,7 +114,7 @@ Desprès executem aquesta comanda "grub-install --target=x86_64-efi --efi-direct
 
 Ara executem la comanda update-grub i podem trobar el Linux i el Windows.
 
-<img width="782" height="265" alt="image" src="https://github.com/user-attachments/assets/871be4a4-7e13-4510-9a40-de4d200a0e9d" />
+<img width="838" height="294" alt="image" src="https://github.com/user-attachments/assets/07730bd5-0a7b-48e6-9664-29e78aa5c1bf" />
 
 Ara instal·larem el gestor d'arrencada amb la comanda "apt install efibootmgr".
 
