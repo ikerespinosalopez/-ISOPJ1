@@ -222,12 +222,46 @@ seleccionamos y restaura <img width="848" height="751" alt="image" src="https://
 ls y deberiamos tener los archivos hola y adeu <img width="764" height="348" alt="image" src="https://github.com/user-attachments/assets/50ee6598-9d90-4d0e-84bd-2a32ba62859e" />
 
 
+ip A
+192.168.203.153
+
+GRAFICAMENTE CAMBIAR Ip <img width="889" height="726" alt="image" src="https://github.com/user-attachments/assets/0453adb8-416c-43cf-b7d2-a646a86000ef" />
+
+ping dns y captura <img width="693" height="241" alt="image" src="https://github.com/user-attachments/assets/fbbb115d-1e92-4b0b-b9b1-910c17ad3721" />
+
+<img width="801" height="306" alt="image" src="https://github.com/user-attachments/assets/35228cfd-8c1e-4884-99ab-3726755ba8f5" />
+
+cd /etc/netplan > ls
+
+modificar 01-network-manager-all.yaml CON NANO
+ Y TIENE que quedar asi <img width="589" height="402" alt="image" src="https://github.com/user-attachments/assets/ee34c790-b4e0-4fd7-9516-e0b2c67f098f" />
+
+netplan apply para ver si esta bien <img width="875" height="641" alt="image" src="https://github.com/user-attachments/assets/2ca7d157-6b2f-4efb-a951-ed76a90ca921" />
 
 
 
 
 
+instalacions
+fer video instalacio dun paquet a traves de 
 
+
+sudo su
+apt-cache policy audacity
+veiem que no el tenim y nos dice el candidato que nos instalara
+queremos una version anterior
+
+cd /etc/apt/preferences
+crear nou fitxer y exemple pinning packet moodle
+ en el video apt policie tiene que salir la que hemos puesto nosotros
+
+
+
+
+
+ 
+
+ 
 
 
 
