@@ -141,7 +141,7 @@ Guardem l'arxiu i ja podem apagar la màquina i treiem la ISO de W10 per a inici
 ## Comandes generals i instal·lacions
 
 # APUNTES BORRAR!!!!!
-
+dia 1
 Ubuntu altres 40gb instalar w10 enterprise (meter windows en emmagatzematge) de instalacion solo pantalla particiones, cuenta local unirse a un dominio
 si nuevo aplicar no deja instalar es porque no esta activada la efi en los ajustes de vbox 
 
@@ -170,6 +170,68 @@ nano etc default grub
 apagamos y quitamos la iso
 tiene que salir el grub y probar que funcionen los dos
 
+
+
+dia 2 ## Punts de restauració y Configuració de xarxa
+abrir maquina virtual ubuntu con adaptador puente
+emmagatzematge > controlador sata > afegir disc (crea) 15gb <img width="858" height="456" alt="image" src="https://github.com/user-attachments/assets/82e85bf3-f444-4c43-9df3-63bb80207024" />
+
+iniciem maquina > terminal sudo su
+apt install timeshift <img width="879" height="452" alt="image" src="https://github.com/user-attachments/assets/0444a6bb-382d-48d1-a9cf-fb4981e4851c" />
+
+fdisk -l localizar el disco /dev/sdb
+crear particion del disco fdisk /dev/sdb intro <img width="690" height="230" alt="image" src="https://github.com/user-attachments/assets/18a3564a-81c3-4d3a-aade-a8e3a8a78d92" />
+
+n per a nova particio > todo intro <img width="884" height="582" alt="image" src="https://github.com/user-attachments/assets/d5f8f458-c954-4e33-b59b-dcf4a33ba197" />
+fdisk -l y captura del disco ahora <img width="625" height="256" alt="image" src="https://github.com/user-attachments/assets/c0c33db9-bfb8-4732-a106-3135a20f6062" />
+
+mkfs.ext4 /dev/sdb1 ahora es el formato de la particion <img width="876" height="278" alt="image" src="https://github.com/user-attachments/assets/44c17985-f551-4948-913f-dff29490d169" />
+
+ls
+touch hola 
+mkdir adeu
+ls <img width="860" height="200" alt="image" src="https://github.com/user-attachments/assets/6951cf4c-3c9b-469a-ae15-c3356262ecc6" />
+
+abrir timeshift desde apps
+captura rsync <img width="742" height="808" alt="image" src="https://github.com/user-attachments/assets/de2400fe-e11a-4cd9-a479-8883e073999c" />
+
+seleccionar sdb1 (disco q hemos creado para las copias de seg) y captura <img width="750" height="548" alt="image" src="https://github.com/user-attachments/assets/8814fb64-6455-4241-a7d3-f7218d7be9f1" />
+
+marcar arrencada solo y captura <img width="825" height="805" alt="image" src="https://github.com/user-attachments/assets/94db82b3-01de-48b1-bb87-72493f64d966" />
+
+marcar inclou tots del usuari <img width="880" height="528" alt="image" src="https://github.com/user-attachments/assets/7258935a-8777-47aa-8b8f-840f9f67c9fe" />
+
+ahora reiniciamos para ver si va (se crean 10 min despues de iniciar)
+
+creamos una instantanea con timeshift y captura  <img width="849" height="846" alt="image" src="https://github.com/user-attachments/assets/b3471ccc-4d4f-436d-99be-80582ba391d0" />
+
+y otra cap cuando acabe <img width="814" height="838" alt="image" src="https://github.com/user-attachments/assets/6a6f5403-0f01-4479-88c1-c27cbf2d4254" />
+
+
+
+cuando este sudo su
+ls
+rm hola
+rm -r adeu
+ls
+
+abrir timeshift
+seleccionamos y restaura <img width="848" height="751" alt="image" src="https://github.com/user-attachments/assets/1633fc0c-189e-4010-88fd-38f5fd8acb0a" />
+
+
+ls y deberiamos tener los archivos hola y adeu <img width="764" height="348" alt="image" src="https://github.com/user-attachments/assets/50ee6598-9d90-4d0e-84bd-2a32ba62859e" />
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
