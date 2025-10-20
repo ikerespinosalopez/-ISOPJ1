@@ -136,16 +136,94 @@ Guardem l'arxiu i ja podem apagar la màquina i treiem la ISO de W10 per a inici
 
 ## Punts de restauració
 
-Obrim la màquina virtual i li configurem un nou disc de 15GB.
+Obrim la màquina virtual i li configurem un nou disc de 15GB on farem les còpies de seguretat.
 
 <img width="858" height="456" alt="image" src="https://github.com/user-attachments/assets/82e85bf3-f444-4c43-9df3-63bb80207024" />
 
+Obrim un terminal dins la màquina i executem la comanda apt install timeshift per a instal·lar Timeshift, la aplicació que farem servir per a fer les còpies de seguretat i els punts de restauració.
+
+<img width="879" height="452" alt="image" src="https://github.com/user-attachments/assets/0444a6bb-382d-48d1-a9cf-fb4981e4851c" />
+
+Ara mitjançant la comanda fdisk -l podem trobar el nostre disc, que en aquest cas és /dev/sdb. A continuació executem la comanda fdisk /dev/sdb.
+
+<img width="690" height="230" alt="image" src="https://github.com/user-attachments/assets/18a3564a-81c3-4d3a-aade-a8e3a8a78d92" />
+
+Un cop dins, premem N per a crear una nova partició dins del disc, que en aquest cas ocupa tot l'espai disponible.
+
+<img width="884" height="582" alt="image" src="https://github.com/user-attachments/assets/d5f8f458-c954-4e33-b59b-dcf4a33ba197" />
+
+Podem comprovar que tenim el disc afegit amb la partició creada amb la comanda fdisk -l.
+
+<img width="625" height="256" alt="image" src="https://github.com/user-attachments/assets/c0c33db9-bfb8-4732-a106-3135a20f6062" />
+
+Per donar-li un format a aquesta partició ho farem amb la comanda mkfs.ext4 /dev/sdb1 i tindrà el format ext4.
+
+<img width="876" height="278" alt="image" src="https://github.com/user-attachments/assets/44c17985-f551-4948-913f-dff29490d169" />
 
 
+Ara per a comprovar el correcte funcionament dels punts de restauració que farem més endavant crearem un arxiu i una carpeta d'exemple, anomenats hola i adeu respectivament.
+
+<img width="860" height="200" alt="image" src="https://github.com/user-attachments/assets/6951cf4c-3c9b-469a-ae15-c3356262ecc6" />
+
+A continuació obrirem l'aplicació TimeShift que hem instal·lat prèviament i configurarem el tipus d'instantània com a RSYNC.
+
+<img width="742" height="808" alt="image" src="https://github.com/user-attachments/assets/de2400fe-e11a-4cd9-a479-8883e073999c" />
+
+Un cop dins, seleccionem la ubicació on volem guardar la instantània, en aquest cas serà el nostre disc dur nou.
+
+<img width="750" height="548" alt="image" src="https://github.com/user-attachments/assets/8814fb64-6455-4241-a7d3-f7218d7be9f1" />
+
+Escollim que la instantània es faci quan arrenquem el dispositiu, tenint en compte que es creen 10 minuts després de l'inici del sistema.
+
+<img width="825" height="805" alt="image" src="https://github.com/user-attachments/assets/94db82b3-01de-48b1-bb87-72493f64d966" />
+
+En el següent pas és important escollir en el nostre usuari l'opció de Inclou tots els fitxers.
+
+<img width="880" height="528" alt="image" src="https://github.com/user-attachments/assets/7258935a-8777-47aa-8b8f-840f9f67c9fe" />
+
+Creem una captura manualment per a no esperar els 10 minuts.
+
+<img width="849" height="846" alt="image" src="https://github.com/user-attachments/assets/b3471ccc-4d4f-436d-99be-80582ba391d0" />
+
+I podem veure quan acabi la instantània com s'ha creat.
+
+<img width="814" height="838" alt="image" src="https://github.com/user-attachments/assets/6a6f5403-0f01-4479-88c1-c27cbf2d4254" />
+
+Ara esborrem els arxius de prova que hem creat abans amb la comanda rm hola i rm -r adeu. Un cop fet obrim el timeshift i seleccionem restaurar.
+
+<img width="848" height="751" alt="image" src="https://github.com/user-attachments/assets/1633fc0c-189e-4010-88fd-38f5fd8acb0a" />
+
+Tornem a obrir la màquina i fem un ls per a veure com s'han restaurat els nostres arxius.
+
+<img width="764" height="348" alt="image" src="https://github.com/user-attachments/assets/50ee6598-9d90-4d0e-84bd-2a32ba62859e" />
 
 ## Configuració de xarxa
 
+Per a canviar la IP podem fer-ho gràficament accedint a la configuració de xarxa i escrivint manualment l'adreça desitjada juntament amb altres paràmetres com la màscara o el DNS.
+
+<img width="889" height="726" alt="image" src="https://github.com/user-attachments/assets/0453adb8-416c-43cf-b7d2-a646a86000ef" />
+
+Obrim un terminal i fem un ping al servidor DNS per a comprovar que tenim connexió i hem configurat bé la IP.
+
+<img width="693" height="241" alt="image" src="https://github.com/user-attachments/assets/fbbb115d-1e92-4b0b-b9b1-910c17ad3721" />
+
+Repetim canviant l'adreça IP per el host www.google.es.
+
+<img width="801" height="306" alt="image" src="https://github.com/user-attachments/assets/35228cfd-8c1e-4884-99ab-3726755ba8f5" />
+
+Una altra manera de modificar els paràmetres de xarxa és accedint a l'arxiu de configuració i escrivint-lo manualment. Anem al directori /etc/netplan i executem la comanda ls per veure els arxius, veurem un que es diu 01-network-manager-all.yaml i accedim a ell amb la comanda nano. Un cop dins configurem els paràmetres de manera que quedi així. (Important vigilar els espais.) 
+
+<img width="589" height="402" alt="image" src="https://github.com/user-attachments/assets/ee34c790-b4e0-4fd7-9516-e0b2c67f098f" />
+
+Un cop modificat i guardat executem la comanda netplan apply per a comprovar que l'hem escrit correctament i fem un ping a les mateixes adreces que abans per veure que tot funciona bé.
+
+<img width="875" height="641" alt="image" src="https://github.com/user-attachments/assets/2ca7d157-6b2f-4efb-a951-ed76a90ca921" />
+
+
 ## Comandes generals i instal·lacions
+
+
+
 
 # APUNTES BORRAR!!!!!
 dia 1
@@ -183,35 +261,34 @@ dia 2 ## Punts de restauració y Configuració de xarxa
 abrir maquina virtual ubuntu con adaptador puente
 emmagatzematge > controlador sata > afegir disc (crea) 15gb 
 iniciem maquina > terminal sudo su
-apt install timeshift <img width="879" height="452" alt="image" src="https://github.com/user-attachments/assets/0444a6bb-382d-48d1-a9cf-fb4981e4851c" />
+apt install timeshift 
 
 fdisk -l localizar el disco /dev/sdb
-crear particion del disco fdisk /dev/sdb intro <img width="690" height="230" alt="image" src="https://github.com/user-attachments/assets/18a3564a-81c3-4d3a-aade-a8e3a8a78d92" />
+crear particion del disco fdisk /dev/sdb intro 
 
-n per a nova particio > todo intro <img width="884" height="582" alt="image" src="https://github.com/user-attachments/assets/d5f8f458-c954-4e33-b59b-dcf4a33ba197" />
-fdisk -l y captura del disco ahora <img width="625" height="256" alt="image" src="https://github.com/user-attachments/assets/c0c33db9-bfb8-4732-a106-3135a20f6062" />
+n per a nova particio > todo intro 
+fdisk -l y captura del disco ahora 
 
-mkfs.ext4 /dev/sdb1 ahora es el formato de la particion <img width="876" height="278" alt="image" src="https://github.com/user-attachments/assets/44c17985-f551-4948-913f-dff29490d169" />
+mkfs.ext4 /dev/sdb1 ahora es el formato de la particion 
 
 ls
 touch hola 
 mkdir adeu
-ls <img width="860" height="200" alt="image" src="https://github.com/user-attachments/assets/6951cf4c-3c9b-469a-ae15-c3356262ecc6" />
+ls 
 
 abrir timeshift desde apps
-captura rsync <img width="742" height="808" alt="image" src="https://github.com/user-attachments/assets/de2400fe-e11a-4cd9-a479-8883e073999c" />
+captura rsync 
 
-seleccionar sdb1 (disco q hemos creado para las copias de seg) y captura <img width="750" height="548" alt="image" src="https://github.com/user-attachments/assets/8814fb64-6455-4241-a7d3-f7218d7be9f1" />
+seleccionar sdb1 (disco q hemos creado para las copias de seg) y captura 
 
-marcar arrencada solo y captura <img width="825" height="805" alt="image" src="https://github.com/user-attachments/assets/94db82b3-01de-48b1-bb87-72493f64d966" />
+marcar arrencada solo y captura 
 
-marcar inclou tots del usuari <img width="880" height="528" alt="image" src="https://github.com/user-attachments/assets/7258935a-8777-47aa-8b8f-840f9f67c9fe" />
-
+marcar inclou tots del usuari 
 ahora reiniciamos para ver si va (se crean 10 min despues de iniciar)
 
-creamos una instantanea con timeshift y captura  <img width="849" height="846" alt="image" src="https://github.com/user-attachments/assets/b3471ccc-4d4f-436d-99be-80582ba391d0" />
+creamos una instantanea con timeshift y captura  
 
-y otra cap cuando acabe <img width="814" height="838" alt="image" src="https://github.com/user-attachments/assets/6a6f5403-0f01-4479-88c1-c27cbf2d4254" />
+y otra cap cuando acabe 
 
 
 
@@ -222,27 +299,27 @@ rm -r adeu
 ls
 
 abrir timeshift
-seleccionamos y restaura <img width="848" height="751" alt="image" src="https://github.com/user-attachments/assets/1633fc0c-189e-4010-88fd-38f5fd8acb0a" />
+seleccionamos y restaura 
 
 
-ls y deberiamos tener los archivos hola y adeu <img width="764" height="348" alt="image" src="https://github.com/user-attachments/assets/50ee6598-9d90-4d0e-84bd-2a32ba62859e" />
+ls y deberiamos tener los archivos hola y adeu 
 
 
 ip A
 192.168.203.153
 
-GRAFICAMENTE CAMBIAR Ip <img width="889" height="726" alt="image" src="https://github.com/user-attachments/assets/0453adb8-416c-43cf-b7d2-a646a86000ef" />
+GRAFICAMENTE CAMBIAR Ip 
 
-ping dns y captura <img width="693" height="241" alt="image" src="https://github.com/user-attachments/assets/fbbb115d-1e92-4b0b-b9b1-910c17ad3721" />
+ping dns y captura 
 
-<img width="801" height="306" alt="image" src="https://github.com/user-attachments/assets/35228cfd-8c1e-4884-99ab-3726755ba8f5" />
+
 
 cd /etc/netplan > ls
 
 modificar 01-network-manager-all.yaml CON NANO
- Y TIENE que quedar asi <img width="589" height="402" alt="image" src="https://github.com/user-attachments/assets/ee34c790-b4e0-4fd7-9516-e0b2c67f098f" />
+ Y TIENE que quedar asi 
 
-netplan apply para ver si esta bien <img width="875" height="641" alt="image" src="https://github.com/user-attachments/assets/2ca7d157-6b2f-4efb-a951-ed76a90ca921" />
+netplan apply para ver si esta bien 
 
 
 
