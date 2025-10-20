@@ -222,6 +222,13 @@ Un cop modificat i guardat executem la comanda netplan apply per a comprovar que
 
 ## Comandes generals i instal·lacions
 
+Amb la comanda apt-cache policy nompaquet podem veure quina és la versió candidata a ser instal·lada quan instal·lem un paquet.
+
+<img width="797" height="158" alt="image" src="https://github.com/user-attachments/assets/7f8efc15-74f1-40d5-99b3-ce4140d54f1b" />
+
+Accedim a la carpeta /etc/apt/preferences.d i creem un nou arxiu on modificarem la prioritat i la versió que volem.
+
+<img width="795" height="221" alt="image" src="https://github.com/user-attachments/assets/91bb921d-cba8-455e-a425-7fde7458ad2e" />
 
 
 
@@ -346,7 +353,7 @@ sudo su
 apt-cache policy audacity
 nos dice que no esta instalado y si hacemos apt istall nos instaka esa version porque hay un candidato
 exemple pinning packet moodle
-a
+
 apt-cache policy paquet
 crear al dkirectori etc apt preferences.d nou arxiu establint altres prioritats
 repetimos el apt y comprobamos que hemos cambiado el candidato
