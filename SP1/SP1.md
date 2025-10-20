@@ -136,6 +136,13 @@ Guardem l'arxiu i ja podem apagar la màquina i treiem la ISO de W10 per a inici
 
 ## Punts de restauració
 
+Obrim la màquina virtual i li configurem un nou disc de 15GB.
+
+<img width="858" height="456" alt="image" src="https://github.com/user-attachments/assets/82e85bf3-f444-4c43-9df3-63bb80207024" />
+
+
+
+
 ## Configuració de xarxa
 
 ## Comandes generals i instal·lacions
@@ -174,8 +181,7 @@ tiene que salir el grub y probar que funcionen los dos
 
 dia 2 ## Punts de restauració y Configuració de xarxa
 abrir maquina virtual ubuntu con adaptador puente
-emmagatzematge > controlador sata > afegir disc (crea) 15gb <img width="858" height="456" alt="image" src="https://github.com/user-attachments/assets/82e85bf3-f444-4c43-9df3-63bb80207024" />
-
+emmagatzematge > controlador sata > afegir disc (crea) 15gb 
 iniciem maquina > terminal sudo su
 apt install timeshift <img width="879" height="452" alt="image" src="https://github.com/user-attachments/assets/0444a6bb-382d-48d1-a9cf-fb4981e4851c" />
 
@@ -257,8 +263,19 @@ crear nou fitxer y exemple pinning packet moodle
 
 
 
+20/10/25
 
+sudo su
+apt-cache policy audacity
+nos dice que no esta instalado y si hacemos apt istall nos instaka esa version porque hay un candidato
+exemple pinning packet moodle
+a
+apt-cache policy paquet
+crear al dkirectori etc apt preferences.d nou arxiu establint altres prioritats
+repetimos el apt y comprobamos que hemos cambiado el candidato
+- apt install paquet  y veure como se instala el que hemos decidido (4 capturas)
 
+ pinning packet
  
 
  
