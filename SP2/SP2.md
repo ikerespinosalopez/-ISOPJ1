@@ -1,4 +1,4 @@
-# 🚀 Nombre del Proyecto
+# 🚀 Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers
 
 [![Estado del Build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/tu-usuario/tu-repo/actions)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue)](LICENSE)
