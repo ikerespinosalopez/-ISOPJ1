@@ -55,3 +55,67 @@ mode definitiu
 
 fragmentacio externa
 <img width="933" height="565" alt="image" src="https://github.com/user-attachments/assets/2e614592-aee5-47e3-8abc-990f3dac8e30" />
+
+
+# dia 4/11 Usuaris, grups, permisos
+Eina ALternativa per a poder gestionar graficament usuaris i grups
+<img width="806" height="457" alt="image" src="https://github.com/user-attachments/assets/38ab2536-8683-4ffd-90b1-9090856667a6" />
+
+# Fitxers implicats
+Aquest fitxer té tots els usuaris del sistema, seleccionar usuari i explicar 
+/etc/passwd <img width="918" height="810" alt="image" src="https://github.com/user-attachments/assets/acd4b78c-2ada-4740-90dd-0a7ba15a9f4f" />
+
+/etc/group
+Té tots els grups del sistema i els usuaris que formen part del grup
+<img width="922" height="813" alt="image" src="https://github.com/user-attachments/assets/6554b7b7-806e-44f2-b20f-1e140bbf6aae" />
+
+/etc/shadow
+Aqui trobem per a cada usuari el seu password encriptat i al final la caducitat de les contraseyes 
+<img width="915" height="796" alt="image" src="https://github.com/user-attachments/assets/f8e95762-2c61-449d-bc0e-c7465f7d3825" />
+
+/etc/gshadow
+Passwords de grups i permet veure els usuaris que formen part del grup, la diferencia amb el group es que aqui es l'unic lloc on es pot veure l'usuari administrador del grup, que només pot haver un.
+<img width="919" height="817" alt="image" src="https://github.com/user-attachments/assets/461443fe-6be7-411a-9aa4-7aa10d1c9b6b" />
+
+# Comandes bàsiques
+afegir usuari adduser
+<img width="883" height="660" alt="image" src="https://github.com/user-attachments/assets/1427e024-2afb-4aa8-9d6f-8cdce63d6990" />
+
+Les carpetes apareixen un cop hem iniciat sessió amb l'usuari que hem creat.
+<img width="920" height="343" alt="image" src="https://github.com/user-attachments/assets/b7e64456-d5c8-41f7-b67c-bc0d1ff674a9" />
+
+afegir usuari useradd
+<img width="926" height="745" alt="image" src="https://github.com/user-attachments/assets/1b2d6871-96fa-4a17-985f-e967ed5d7b94" />
+
+grupos
+<img width="929" height="880" alt="image" src="https://github.com/user-attachments/assets/ffbb3cd8-137c-43ca-bc48-a49521c998ba" />
+
+al borrar el usuario no se borra el home, hay que hacerlo de otra manera
+<img width="912" height="462" alt="image" src="https://github.com/user-attachments/assets/f9d523f6-2708-443d-81d7-c08085d5d4d8" />
+
+bloquejar i desbloquejar un usuari
+<img width="929" height="332" alt="image" src="https://github.com/user-attachments/assets/40d75fde-ba97-4db9-a705-02876333c0ac" />
+
+
+creem el grup asixb i tres usuaris ivan pau iker aaron
+modifiquem el nom del grup i l'eliminem
+<img width="702" height="198" alt="image" src="https://github.com/user-attachments/assets/94ab1778-52b1-4f92-b6e5-c0d8b6d6fa08" />
+
+
+tres maneres d'afegir un usuari a un grup
+<img width="717" height="240" alt="image" src="https://github.com/user-attachments/assets/a9954f93-1a7a-4bd1-9621-00af319b8e9f" />
+
+amb la segona comanda i el parametre -A en majuscula es el admin del grup
+
+<img width="916" height="342" alt="image" src="https://github.com/user-attachments/assets/6dc79795-49f6-4b05-be56-c220d5094b6f" />
+
+amb la -g minuscula es modifica el grup principal d'un usuari però no s'afegeix al grup
+<img width="713" height="311" alt="image" src="https://github.com/user-attachments/assets/42ed80ed-6783-41a9-8fbb-37fe9bf6d49d" />
+
+
+
+
+
+
+
+
