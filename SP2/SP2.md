@@ -112,10 +112,59 @@ amb la segona comanda i el parametre -A en majuscula es el admin del grup
 amb la -g minuscula es modifica el grup principal d'un usuari però no s'afegeix al grup
 <img width="713" height="311" alt="image" src="https://github.com/user-attachments/assets/42ed80ed-6783-41a9-8fbb-37fe9bf6d49d" />
 
+# dia 17/11
+
+creacio 4 usuaris i modificacio nom de grup
+<img width="751" height="225" alt="image" src="https://github.com/user-attachments/assets/ff2604db-c17c-4e05-90b8-bab5d6e5321b" />
+
+3 maneres d'afegir un usuari a un grup i dos maneres d'eliminarlo
+<img width="766" height="327" alt="image" src="https://github.com/user-attachments/assets/0987394c-b4db-4cb5-97dc-2350d39be1be" />
+
+amb aquesta comanda es modifica el grup principal de l'usuari i un usuari nomes te un grup principal, pero pot formar part de molts grups i el grup principal es pot establir de manera fixa (amb questa comanda que hem fet) o temporal
+<img width="789" height="152" alt="image" src="https://github.com/user-attachments/assets/b49fb1e6-38c5-49c8-8241-0d7fb1e20771" />
+
+sempre es pot borrar un grup i als usuaris no els hi passa res, menys quan aquest és el grup principal de l'usuari, que no es pot esborrar
+<img width="729" height="83" alt="image" src="https://github.com/user-attachments/assets/cdc79ebc-1ac7-44b8-8b4a-1858c3068d97" />
+
+crar arxiu i carpeta, tot lo que hi hagi en aquest directori es copia al home del usuarinutilitzant la comanda adduser
+<img width="704" height="490" alt="image" src="https://github.com/user-attachments/assets/48e5d3ed-f4fd-4063-a7df-57ec47fafa10" />
+
+que el id comenci per 3000
+<img width="458" height="175" alt="image" src="https://github.com/user-attachments/assets/fa40a4b8-b91a-46a8-9bdf-665e557bed1d" />
+
+que el home estigui en altre lloc 
+<img width="707" height="306" alt="image" src="https://github.com/user-attachments/assets/6ed68c61-cef2-49ec-b559-d5ba1978dfb4" />
+
+canvair coses de passwd
+<img width="822" height="202" alt="image" src="https://github.com/user-attachments/assets/a9066e1e-124b-4518-89e9-43416b5973fd" />
+
+comprovem que els canvis del fitxer adduser han funcionat i comprovem la caducitat de les passwd i que l'usuari se li ha creat lo del skel
+<img width="854" height="488" alt="image" src="https://github.com/user-attachments/assets/1d0f9093-9b94-4076-b1c1-91c0cd0df307" />
+
+ara amb els arxius que modifiquen useradd
+canviar shell per defecte
+<img width="857" height="251" alt="image" src="https://github.com/user-attachments/assets/e27f5f0b-46d2-47a2-91c5-a32ca8bee7f2" />
+
+fem les comprovacions
+<img width="856" height="217" alt="image" src="https://github.com/user-attachments/assets/a79fb683-72e8-4167-8c86-a756c25cc8d8" />
+
+TITULO DE TODO ESTO personalitzacio de les comandes adduser i useradd, debajo de comandes basiques
+
+canviar el lloc on estem al fer la comanda pwd
+<img width="862" height="413" alt="image" src="https://github.com/user-attachments/assets/843bdd45-e309-48ac-b6bf-b2a9848e70a1" />
+
+crear alias para ejecutar un comando usando una palabra
+<img width="860" height="261" alt="image" src="https://github.com/user-attachments/assets/7bb78bf0-6120-4185-b97e-2f7ac27f64da" />
 
 
+<img width="852" height="227" alt="image" src="https://github.com/user-attachments/assets/2975631e-1a59-445a-a040-f53d44000e60" />
+
+accedim a l'usuari a traves del terminal i fem les comprovacions
+<img width="1109" height="732" alt="image" src="https://github.com/user-attachments/assets/04c3ef3c-18c0-4dee-8ea2-96509e63c8c3" />
+<img width="1133" height="398" alt="image" src="https://github.com/user-attachments/assets/6eae412a-2ba1-4a99-8002-a52ab402cfb8" />
 
 
+EXERCICI crear personalitzacio al bashrc bashlogout i profile un nou usuari amb modificacions
 
 
 
