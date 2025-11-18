@@ -173,6 +173,24 @@ accedim a l'usuari a traves del terminal i fem les comprovacions
 
 # dia 18/11
 
+canviar permisos, dos maneres una amb dos comandes i una altra amb una
+<img width="800" height="779" alt="image" src="https://github.com/user-attachments/assets/42361882-8222-4cef-82ca-486c54508d23" />
+
+proves de que funcionen els permisos que hem donat abans
+<img width="805" height="679" alt="image" src="https://github.com/user-attachments/assets/7ab29fad-c0d1-4ce3-9487-e004c926cfd3" />
+
+<img width="858" height="710" alt="image" src="https://github.com/user-attachments/assets/48693b2c-2059-44c8-adfd-3d65e4fc437d" />
+
+permisos especials 
+(sticky) - nomes pot esborrar lo seu, no lo dels altres
+<img width="873" height="815" alt="image" src="https://github.com/user-attachments/assets/a6b40229-fb0e-45c8-bc88-4df36237012a" />
+<img width="641" height="151" alt="image" src="https://github.com/user-attachments/assets/cfbdd18c-fbd9-4d39-8e15-d34df5e4fee4" />
+
+(suid)
+<img width="702" height="156" alt="image" src="https://github.com/user-attachments/assets/337b8223-553e-4add-95cd-2c177e7e56ad" />
+
+
+
 ## Còpies de seguretat i automatització de tasques
 
 
