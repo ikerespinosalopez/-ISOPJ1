@@ -188,7 +188,7 @@ permisos especials
 
 (suid)
 <img width="702" height="156" alt="image" src="https://github.com/user-attachments/assets/337b8223-553e-4add-95cd-2c177e7e56ad" />
-
+exemple al moodle per fer el pas a pas d'exemple SUID
 
 
 ## Còpies de seguretat i automatització de tasques
@@ -196,13 +196,6 @@ permisos especials
 
 
 ## Quotes d'usuari
-
-
-
-
-
-
-
 
 
 
@@ -221,6 +214,26 @@ mode definitiu
 
 
 
+# dia 24-11
+ACLs (gestió d'usuaris, permisos, etc)
+<img width="642" height="586" alt="image" src="https://github.com/user-attachments/assets/bbc48fe0-0d9d-4c1d-b1a6-095c83c6d436" /> (el ls- l sin el grep sobra)
+
+<img width="749" height="521" alt="image" src="https://github.com/user-attachments/assets/fd3486b9-e761-4e09-92e5-bd45287e6185" />
+
+Definim la llista i comrpovem el que passa
+<img width="709" height="232" alt="image" src="https://github.com/user-attachments/assets/b68e5b78-332b-46f7-810d-f4ea6145603b" />
+
+l'usuari blau no te permisos, per tant no ens deixa
+<img width="824" height="735" alt="image" src="https://github.com/user-attachments/assets/0dcf7363-d0da-49ee-ba54-9190be5d6bbd" />
+
+amb el roig ens deixa però no al directori var, però el missatge és diferent i pdoriem
+<img width="831" height="739" alt="image" src="https://github.com/user-attachments/assets/1234cfb8-dd54-44f3-812b-2f7bd930aea3" />
+
+deixar els permisos com estaven al principi amb una comanda
+<img width="713" height="484" alt="image" src="https://github.com/user-attachments/assets/de635c32-9066-46ff-8a52-de6653d80af1" />
+
+denegar l'accès a la carpeta
+<img width="750" height="401" alt="image" src="https://github.com/user-attachments/assets/2f55aa96-3a3f-48dd-b548-35af1816c608" />
 
 
 
