@@ -235,6 +235,25 @@ deixar els permisos com estaven al principi amb una comanda
 denegar l'accès a la carpeta
 <img width="750" height="401" alt="image" src="https://github.com/user-attachments/assets/2f55aa96-3a3f-48dd-b548-35af1816c608" />
 
+# dia 25-11
+UMASK
+explicar teoria foto movil
+
+<img width="726" height="175" alt="image" src="https://github.com/user-attachments/assets/c0f7bfab-e431-4341-8600-8af866ad8496" />
+
+per a canviar la màscara de tots els usuaris ho podem fer des d'aquest arxiu 
+<img width="851" height="523" alt="image" src="https://github.com/user-attachments/assets/338f8021-59c5-4d48-a33f-c58e1b0c32e5" />
+
+per a canviar-lo nomes en un usuari editem l'arxiu .profile
+<img width="846" height="647" alt="image" src="https://github.com/user-attachments/assets/0cf71301-83e2-4540-8f29-61debef95c9d" />
+
+amb la comanda umask podem canviar la màscara de manera temporal per  l'usuari actual
+<img width="764" height="257" alt="image" src="https://github.com/user-attachments/assets/24705d1d-d766-415d-a72a-2b9f0e2d8221" />
 
 
+per a fer-ho definitiu per a tots els usuaris modifiquem aquest arxiu
+<img width="840" height="506" alt="image" src="https://github.com/user-attachments/assets/b49cd404-9778-4e44-bf57-772391b52e99" />
+
+comprovem els canvis
+<img width="658" height="275" alt="image" src="https://github.com/user-attachments/assets/f142de3b-ec7a-4fea-959e-30d63b087078" />
 
