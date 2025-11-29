@@ -19,42 +19,46 @@ Cada entorn té els seus formats predilectes, optimitzats per rendiment, seguret
     * **ext4:** L'estàndard en Linux. És molt estable i redueix la fragmentació del disc, evitant que el sistema es ralentitzi amb el temps.
     * **XFS:** Sovint utilitzat en servidors perquè gestiona molt bé fitxers extremadament grans i volums de dades massius.
  
-  Per a veure el sistema de fitxers que tenim muntat i el tipus podem fer servir la comanda `df -Th`:
+Per a veure el sistema de fitxers que tenim muntat i el tipus podem fer servir la comanda `df -Th`:
 
 <img width="803" height="250" alt="image" src="https://github.com/user-attachments/assets/5da20936-6585-4d0f-aacb-efed6d4f92e2" />
 
-  ## Mida sector 
+## Mida sector 
 És la unitat mínima física on se guarden les dades en un disc. Per defecte la mida són 512 bytes i no es pot modificar.
-  <img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
+
+<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
 
 */  <img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
 
 */ <img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
-
-
-  ## Mida block 
+## Mida block 
 També es pot dir clúster, la seva mida és la unitat mínima lògica on es guarden les dades a nivell de sistema operatiu. Per defecte són 4096 bytes (8 sectors) i aquesta mida sí que la podem modificar quan es formateja la partició. Cada partició del disc pot tenir una mida de bloc i un sistema de fitxers diferent.
 
 La comanda `tune2fs -l` s'utilitza per llistar o mostrar tota la informació detallada del superbloc d'un sistema de fitxers de tipus ext2, ext3 o ext4 a Linux. És una eina de diagnòstic i inspecció que et permet veure l'estat i la configuració interna de la partició. Per utilitzar aquesta ordre, has d'especificar el dispositiu (la partició) que vols inspeccionar. Per exemple: `tune2fs -l /dev/sda2`:
+
 <img width="790" height="119" alt="image" src="https://github.com/user-attachments/assets/10c68533-189d-41a3-a588-120d23bec548" />
 
 En la següent imatge podem veure com creem un fitxer de text amb contingut i a continuació comprovem la seva mida i la mida que ocupa al SO per la mida del bloc:
+
 <img width="802" height="183" alt="image" src="https://github.com/user-attachments/assets/f860d2c5-0ead-4d6c-ab89-9dc99e329575" />
 
   
-  ## Fragmentació interna 
+## Fragmentació interna 
 La fragmentació interna es produeix quan l'espai assignat a un fitxer és més gran que la mida real d'aquest fitxer, resultant en un malbaratament d'espai al disc.
   
-  ## Fragmentació externa 
-  És quan un arxiu no està guardat en blocs consecutius de la memòria i els seus accessos són més lents, i, per tant, baixa el rendiment. En Windows tenim una eina anomenada desfragmentador de discos que ens permet solucionar aquest problema, a Linux per norma general no fa falta, ja que el sistema de fitxers ext4 està més optimitzat. 
+## Fragmentació externa 
+És quan un arxiu no està guardat en blocs consecutius de la memòria i els seus accessos són més lents, i, per tant, baixa el rendiment. En Windows tenim una eina anomenada desfragmentador de discos que ens permet solucionar aquest problema, a Linux per norma general no fa falta, ja que el sistema de fitxers ext4 està més optimitzat. 
 De totes maneres, si volem comprovar-ho podem fer servir la comanda `e4defrag`, amb els paràmetres -c fem un diagnòstic i l'indiquem la nostra carpeta a comprovar: 
 
 <img width="933" height="565" alt="image" src="https://github.com/user-attachments/assets/2e614592-aee5-47e3-8abc-990f3dac8e30" />
   
-  ### Tipus de formateig
-    #### Baix nivell (Esborra tot, arixus, sistema de fitxers i intenta reparar sectors defectuosos però es necessiten programes especifics, no e spot fer a travès del SO.)
-    #### Mig nivell (Format lento, no borra arxius però si es troba sectors dfectuosos els marca, però no els repara.)
-    #### Alt nivell (No es borren els arxius, només s'esborra el sistema de fitxers. Si troba sectors defectuosos els ignora totalment.)
+## Tipus de formateig
+  
+### Baix nivell (Esborra tot, arixus, sistema de fitxers i intenta reparar sectors defectuosos però es necessiten programes especifics, no e spot fer a travès del SO.)
+    
+### Mig nivell (Format lento, no borra arxius però si es troba sectors dfectuosos els marca, però no els repara.)
+    
+### Alt nivell (No es borren els arxius, només s'esborra el sistema de fitxers. Si troba sectors defectuosos els ignora totalment.)
 
 
     
