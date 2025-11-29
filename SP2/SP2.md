@@ -28,9 +28,6 @@ Per a veure el sistema de fitxers que tenim muntat i el tipus podem fer servir l
 
 <img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
 
-*/  <img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
-
-*/ <img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
 ## Mida block 
 També es pot dir clúster, la seva mida és la unitat mínima lògica on es guarden les dades a nivell de sistema operatiu. Per defecte són 4096 bytes (8 sectors) i aquesta mida sí que la podem modificar quan es formateja la partició. Cada partició del disc pot tenir una mida de bloc i un sistema de fitxers diferent.
 
@@ -53,23 +50,23 @@ De totes maneres, si volem comprovar-ho podem fer servir la comanda `e4defrag`, 
 <img width="933" height="565" alt="image" src="https://github.com/user-attachments/assets/2e614592-aee5-47e3-8abc-990f3dac8e30" />
   
 ## Tipus de formateig
+* **Baix nivell:** Esborra tot, arixus, sistema de fitxers i intenta reparar sectors defectuosos, però es necessiten programes especifics, no es pot fer a travès del SO.
+* **Mig nivell:** Formateig lent, no borra arxius però si es troba sectors dfectuosos els marca, però no els repara.
+* **Alt nivell:** No es borren els arxius, només s'esborra el sistema de fitxers. Si troba sectors defectuosos els ignora totalment. 
+    
+## Gestio de particions
+Una partició és un tros físic del disc dur i un volum és una capa d'abstracció que es posa damunt de les particions i/o discos. Amb l'eina GParted podem gestionar particions però no podem modificar la mida del bloc.
+
+1. Preparació de l'equip: Afegim un disc de 10GB a la nostra màquina virtual Ubuntu:
+
+<img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
+
+2. Podem comprovar que el sistema detecta el nou disc amb `fdisk -l`:
+   
+<img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
   
-### Baix nivell (Esborra tot, arixus, sistema de fitxers i intenta reparar sectors defectuosos però es necessiten programes especifics, no e spot fer a travès del SO.)
-    
-### Mig nivell (Format lento, no borra arxius però si es troba sectors dfectuosos els marca, però no els repara.)
-    
-### Alt nivell (No es borren els arxius, només s'esborra el sistema de fitxers. Si troba sectors defectuosos els ignora totalment.)
-
-
-    
-  ### Gestio de particions
-  Particions: una partició és un tros físic del disc dur i amb el gparted podem gestionar particions però no podem modificar la mida del bloc.
-  Volum: un volum és una capa d'abstracció que es posa damunt de les particions i/o discos.
-
-
-  
-    #### GPARTED
-    <img width="1107" height="420" alt="image" src="https://github.com/user-attachments/assets/515b2cc9-1b74-4bbd-bf11-09f5b93a6d10" />
+### GPARTED
+<img width="1107" height="420" alt="image" src="https://github.com/user-attachments/assets/515b2cc9-1b74-4bbd-bf11-09f5b93a6d10" />
     esto para gparted
 <img width="1107" height="420" alt="image" src="https://github.com/user-attachments/assets/515b2cc9-1b74-4bbd-bf11-09f5b93a6d10" />
 
