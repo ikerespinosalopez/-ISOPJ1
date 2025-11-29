@@ -128,19 +128,19 @@ La podem instal·lar amb la comanda `sudo apt install gnome-system-tools`, i un 
 
 ### Fitxers implicats
 A continuació veurem una sèrie de fitxers que tenen una alta importància a l'hora de gestionar els usuaris, grups i permisos. 
-Comencem amb el fitxer **/etc/passwd**, que conté tots els usuaris del sistema. Veiem a la imatge que tenim seleccionat el nostre usuari i se'ns indiquen una sèrie de paràmetres, en ordre: nom d'usuari > contrasenya > UID > GID > GECOS > Directori personal > Intèrpret d'ordres:
+* Comencem amb el fitxer **/etc/passwd**, que conté tots els usuaris del sistema. Veiem a la imatge que tenim seleccionat el nostre usuari i se'ns indiquen una sèrie de paràmetres, en ordre: nom d'usuari > contrasenya > UID > GID > GECOS > Directori personal > Intèrpret d'ordres:
 
 <img width="918" height="810" alt="image" src="https://github.com/user-attachments/assets/acd4b78c-2ada-4740-90dd-0a7ba15a9f4f" />
 
-Seguim amb un altre fitxer de gran valor, és el **/etc/group**, on podem trobar tots els grups del sistema, juntament amb els usuaris que formen part del grup.
+* Seguim amb un altre fitxer de gran valor, és el **/etc/group**, on podem trobar tots els grups del sistema, juntament amb els usuaris que formen part del grup.
 
 <img width="922" height="813" alt="image" src="https://github.com/user-attachments/assets/6554b7b7-806e-44f2-b20f-1e140bbf6aae" />
 
-A continnuació tenim el fitxer **/etc/shadow**, aqui trobem per a cada usuari el seu password encriptat i al final la caducitat de les contrasenyes.
+* A continnuació tenim el fitxer **/etc/shadow**, aqui trobem per a cada usuari el seu password encriptat i al final la caducitat de les contrasenyes.
 
 <img width="915" height="796" alt="image" src="https://github.com/user-attachments/assets/f8e95762-2c61-449d-bc0e-c7465f7d3825" />
 
-Per últim tenim **/etc/gshadow** que conté passwords de grups i permet veure els usuaris que formen part del grup, la diferència amb l'arxiu /etc/group és que aqui es l'únic lloc on es pot veure l'usuari administrador del grup, que només pot haver un.
+* Per últim tenim **/etc/gshadow** que conté passwords de grups i permet veure els usuaris que formen part del grup, la diferència amb l'arxiu /etc/group és que aqui es l'únic lloc on es pot veure l'usuari administrador del grup, que només pot haver un.
 
 <img width="919" height="817" alt="image" src="https://github.com/user-attachments/assets/461443fe-6be7-411a-9aa4-7aa10d1c9b6b" />
 
@@ -149,7 +149,7 @@ Per últim tenim **/etc/gshadow** que conté passwords de grups i permet veure e
 Les comandes de gestió d'usuaris són eines essencials per a l'administrador del sistema. Permeten controlar qui té accés al sistema i quins permisos bàsics se'ls assignen. A continuació veurem una sèrie d'ordres bàsiques per a la gestió.
 
 
-Primer tenim la comanda `adduser`, que crea un nou compte d'usuari de manera senzilla i interactiva, establint automàticament el seu directori personal i assignant la contrasenya.
+Primer tenim la comanda `adduser [usuari]`, que crea un nou compte d'usuari de manera senzilla i interactiva, establint automàticament el seu directori personal i assignant la contrasenya.
 
 <img width="883" height="660" alt="image" src="https://github.com/user-attachments/assets/1427e024-2afb-4aa8-9d6f-8cdce63d6990" />
 
@@ -158,17 +158,37 @@ En un principi no les veurem, però si iniciem sessió amb l'usuari nou podrem v
 <img width="920" height="343" alt="image" src="https://github.com/user-attachments/assets/b7e64456-d5c8-41f7-b67c-bc0d1ff674a9" />
 
 
-També tenim la comanda `useradd`. Afegeix un nou compte d'usuari, creant la seva entrada a **/etc/passwd** i el seu directori personal.
+També tenim la comanda `useradd [usuari]`. Afegeix un nou compte d'usuari, creant la seva entrada a **/etc/passwd** i el seu directori personal. Amb la comanda `passwd [usuari]` establim la seva contrasenya:
 
 <img width="926" height="745" alt="image" src="https://github.com/user-attachments/assets/1b2d6871-96fa-4a17-985f-e967ed5d7b94" />
 
-grupos
+Amb la comanda ` adduser [usuari] [grup]` podem afegir usuaris a un grup, i amb la comanda `deluser [usuari] [grup]` l'elimine. d'aquest. Podem veure com segons el grup al que pertanyen o deixen de pertànyer els usuaris tindrem o no permisos per realitzar certes accions com fer servir `sudo`.
+
 <img width="929" height="880" alt="image" src="https://github.com/user-attachments/assets/ffbb3cd8-137c-43ca-bc48-a49521c998ba" />
 
-al borrar el usuario no se borra el home, hay que hacerlo de otra manera
+Quan esborrem un usuari amb la comanda `deluser [usuari]` podem veure que no s'esborren les seves carpetes:
+
 <img width="912" height="462" alt="image" src="https://github.com/user-attachments/assets/f9d523f6-2708-443d-81d7-c08085d5d4d8" />
 
-bloquejar i desbloquejar un usuari
+En aquesta imatge veiem el procés de **bloqueig i desbloqueig temporal** d'un compte d'usuari (`gina`) mitjançant la modificació del seu registre al fitxer de contrasenyes xifrades (`/etc/shadow`).
+
+1. Estat Inicial
+
+* **Comanda:** `cat /etc/shadow | grep gina`
+* **Observació:** L'entrada de l'usuari `gina` comença amb el *hash* normal de la contrasenya (`$`). Això indica que el compte està **desbloquejat**.
+
+2. Bloqueig del Compte
+
+* **Comanda:** `usermod -L gina`
+* **Acció:** L'opció `-L` (Lock) de `usermod` bloqueja el compte.
+* **Efecte al Fitxer:** Després de la comanda, el *hash* de la contrasenya a `/etc/shadow` és prefixat amb un **signe d'exclamació (`!`)** (`gina:!$y$j9T...`). La presència d'aquest caràcter impedeix qualsevol intent d'inici de sessió amb contrasenya.
+
+### 3. Desbloqueig del Compte
+
+* **Comanda:** `usermod -U gina`
+* **Acció:** L'opció `-U` (Unlock) de `usermod` desbloqueja el compte.
+* **Efecte al Fitxer:** El signe d'exclamació (`!`) és **eliminat** del registre de la contrasenya, tornant el compte a l'estat **desbloquejat** i permetent a l'usuari `gina` iniciar sessió de nou.
+
 <img width="929" height="332" alt="image" src="https://github.com/user-attachments/assets/40d75fde-ba97-4db9-a705-02876333c0ac" />
 
 
