@@ -84,7 +84,26 @@ A continuació formatem la segona partició amb el sistema de fitxers de Windows
 A la sgüent imatge podem veure com comprovar de dues maneres diferents la creació i formatació de les dues particions. Amb el terminal, fem servir la comanda `tune2fs - l /dev/sdb1 | grep Block` per a veure tota la informacióp del superbloc, on ens confirmen la mida del bloc i el nombre total de blocs. D'altra banda tenim l'eina GParted, on podem veure gràficament l'estructura, el tipus de sistema de fitxers i la mida.
 
 <img width="771" height="445" alt="image" src="https://github.com/user-attachments/assets/b4a41272-e767-4659-8091-8a4efc4b7b90" />
-    
+
+El Sistema Operatiu Linux ofereix dues maneres principals de muntar particions, depenent de si el muntatge ha de sobreviure a un reinici o no.
+
+| Característica | ⏱️ Muntatge Temporal (Amb `mount`) | ♾️ Muntatge Persistent (Amb `/etc/fstab`) |
+| :--- | :--- | :--- |
+| **Comanda** | S'utilitza l'ordre `mount` directament. | Es requereix editar el fitxer `/etc/fstab`. |
+| **Durada** | Només dura fins que s'executa la comanda `umount` o el sistema es **reinicia**. | El muntatge es realitza **automàticament** cada vegada que el sistema operatiu s'inicia. |
+| **Fitxer de Config.** | Cap fitxer modificat. L'acció es fa a l'instant. | S'afegeix una línia al fitxer **/etc/fstab** especificant la partició, el punt de muntatge i les opcions. |
+| **Ús Típic** | Dispositius extraïbles (USB), CDs/DVDs, o fer proves ràpides a una partició nova. | Particions internes permanents (com `/home`, `swap`, o discs de dades secundaris). |
+
+* Mode temporal
+<img width="810" height="326" alt="image" src="https://github.com/user-attachments/assets/ef951cd5-da97-4b53-b7a9-7ae708eff851" />
+<img width="806" height="374" alt="image" src="https://github.com/user-attachments/assets/78b11076-4645-4fa1-ba86-87f72803d544" />
+<img width="804" height="261" alt="image" src="https://github.com/user-attachments/assets/826347b9-f4b4-478f-86ae-0daf385f2e04" />
+
+* Mode definitiu
+<img width="806" height="428" alt="image" src="https://github.com/user-attachments/assets/ad4372c2-f4f8-455c-9703-23a89a4850d7" />
+<img width="607" height="140" alt="image" src="https://github.com/user-attachments/assets/79b5ab8e-a684-45cc-a825-c5ab37542140" />
+
+
 ## ⚙️ Gestió de processos
 Un **procés** es defineix com la instància dinàmica resultant d'executar un codi o programa. És l'element bàsic de treball que el sistema operatiu ha de gestionar, planificar i monitoritzar constantment per garantir el funcionament fluid del sistema.
 
@@ -183,7 +202,7 @@ En aquesta imatge veiem el procés de **bloqueig i desbloqueig temporal** d'un c
 * **Acció:** L'opció `-L` (Lock) de `usermod` bloqueja el compte.
 * **Efecte al Fitxer:** Després de la comanda, el *hash* de la contrasenya a `/etc/shadow` és prefixat amb un **signe d'exclamació (`!`)** (`gina:!$y$j9T...`). La presència d'aquest caràcter impedeix qualsevol intent d'inici de sessió amb contrasenya.
 
-### 3. Desbloqueig del Compte
+3. Desbloqueig del Compte
 
 * **Comanda:** `usermod -U gina`
 * **Acció:** L'opció `-U` (Unlock) de `usermod` desbloqueja el compte.
@@ -192,158 +211,288 @@ En aquesta imatge veiem el procés de **bloqueig i desbloqueig temporal** d'un c
 <img width="929" height="332" alt="image" src="https://github.com/user-attachments/assets/40d75fde-ba97-4db9-a705-02876333c0ac" />
 
 
-creem el grup asixb i tres usuaris ivan pau iker aaron
-modifiquem el nom del grup i l'eliminem
+Amb la comanda `groupmod -n` modifiquem el nom del grup i amb la comanda `groupdel` l'eliminem:
 <img width="702" height="198" alt="image" src="https://github.com/user-attachments/assets/94ab1778-52b1-4f92-b6e5-c0d8b6d6fa08" />
 
 
-tres maneres d'afegir un usuari a un grup
-<img width="717" height="240" alt="image" src="https://github.com/user-attachments/assets/a9954f93-1a7a-4bd1-9621-00af319b8e9f" />
+Aquí podem veure tres maneres d'afegir un usuari a un grup: 
+* Amb la comanda `adduser [usuari] [grup]`.
+* Amb la comanda `gpasswd -a [usuari] [grup]`.
+* Amb la comanda `usermod -a -G [grup] [usuari]`.
 
-amb la segona comanda i el parametre -A en majuscula es el admin del grup
-
+- Amb la comanda `gpasswd -A [usuari] [grup]` afegim a un usuari com a administrador del grup. 
+A continuació comprovem que els quatre hagin funcionat correctament mirant l'arxiu /etc/group i filtrant pel nom del grup.
+   
 <img width="916" height="342" alt="image" src="https://github.com/user-attachments/assets/6dc79795-49f6-4b05-be56-c220d5094b6f" />
 
-amb la -g minuscula es modifica el grup principal d'un usuari però no s'afegeix al grup
+Si fem servir la comanda `usermod`amb el paràmetre `-g`  es modifica el grup principal d'un usuari però no s'afegeix al grup.
+
 <img width="713" height="311" alt="image" src="https://github.com/user-attachments/assets/42ed80ed-6783-41a9-8fbb-37fe9bf6d49d" />
 
-# dia 17/11
-
-creacio 4 usuaris i modificacio nom de grup
+Primer comprovem quins han sigut els últims 4 usuaris creats i a continuació creem un nou grup i li canviem el nom:
 <img width="751" height="225" alt="image" src="https://github.com/user-attachments/assets/ff2604db-c17c-4e05-90b8-bab5d6e5321b" />
 
-3 maneres d'afegir un usuari a un grup i dos maneres d'eliminarlo
+Aquesta imatge mostra una demostració completa de **com afegir i eliminar usuaris d'un grup** (`parchis`) utilitzant diferents comandes disponibles a Linux.
+
+### 1. Afegint Membres (3 Mètodes Diferents)
+
+Es van afegir tres usuaris al grup `parchis`, demostrant diferents sintaxis:
+
+| Usuari | Comanda Utilitzada | Funció |
+| :--- | :--- | :--- |
+| **roig** | `gpasswd -a roig parchis` | Utilitza `gpasswd` (gestió d'administració de grups) amb l'opció `-a` (add). |
+| **verd** | `usermod -a -G parchis verd` | Utilitza `usermod` (modificació d'usuari) amb l'opció `-a -G` (append to group). |
+| **groc** | `adduser groc parchis` | Utilitza la utilitat amigable `adduser` (opció senzilla). |
+| **Verificació** | `cat /etc/group | grep parchis` | **Resultat:** Confirma que el grup conté: `roig,verd,groc`. |
+
+### 2. Eliminant Membres (2 Mètodes Diferents)
+
+Posteriorment, es van eliminar dos usuaris amb dos mètodes diferents:
+
+| Usuari | Comanda Utilitzada | Funció |
+| :--- | :--- | :--- |
+| **roig** | `gpasswd -d roig parchis` | Ús de `gpasswd` amb l'opció `-d` (delete). |
+| **verd** | `deluser verd parchis` | Utilitza la utilitat amigable `deluser` per suprimir l'usuari del grup. |
+
+**Verificació Final:** La darrera comprovació (`cat /etc/group | grep parchis`) mostra que només queda l'usuari **`groc`** al grup `parchis`.
+
 <img width="766" height="327" alt="image" src="https://github.com/user-attachments/assets/0987394c-b4db-4cb5-97dc-2350d39be1be" />
 
-amb aquesta comanda es modifica el grup principal de l'usuari i un usuari nomes te un grup principal, pero pot formar part de molts grups i el grup principal es pot establir de manera fixa (amb questa comanda que hem fet) o temporal
+Amb aquesta comanda es modifica el grup principal de l'usuari. Un usuari nomé.s te un grup principal, però pot formar part de molts grups i el grup principal es pot establir de manera fixa (amb questa comanda que hem fet) o temporal.
+
 <img width="789" height="152" alt="image" src="https://github.com/user-attachments/assets/b49fb1e6-38c5-49c8-8241-0d7fb1e20771" />
 
-sempre es pot borrar un grup i als usuaris no els hi passa res, menys quan aquest és el grup principal de l'usuari, que no es pot esborrar
+Sempre es pot eliminar un grup i als usuaris no els hi passa res, menys quan aquest és el grup principal de l'usuari, que no es pot esborrar:
+
 <img width="729" height="83" alt="image" src="https://github.com/user-attachments/assets/cdc79ebc-1ac7-44b8-8b4a-1858c3068d97" />
 
-crar arxiu i carpeta, tot lo que hi hagi en aquest directori es copia al home del usuarinutilitzant la comanda adduser
+
+### Personalitzacio de les comandes adduser i useradd
+
+Aquesta imatge mostra com podem modificar el directori **/etc/skel** per establir una configuració per defecte per a tots els futurs usuaris del sistema.
+
+1. Inspecció inicial
+
+* **Acció:** L'usuari navega a `/etc/skel` i llista els fitxers existents (`.bashrc`, `.profile`, etc.).
+* **Funció de `/etc/skel`:** Aquest directori actua com a **plantilla (skeleton)**. Quan es crea un nou usuari, tot el que conté `/etc/skel` es copia automàticament al nou directori personal de l'usuari.
+
+2. Afegim els elements personalitzats
+
+Es creen dos nous elements:
+
+* **Comanda:** `mkdir prova`
+* **Acció:** Es crea un nou subdirectori anomenat **`prova`**.
+* **Comanda:** `touch hola`
+* **Acció:** Es crea un fitxer buit anomenat **`hola`**.
+
+3. Conseqüència de la modificació
+
+* **Resultat:** Els elements `prova` i `hola` són ara part de la plantilla.
+
+**En resum:** Qualsevol nou usuari que es creï a partir d'aquest moment tindrà automàticament el directori **`~/prova`** i el fitxer **`~/hola`** al seu directori personal.
+
 <img width="704" height="490" alt="image" src="https://github.com/user-attachments/assets/48e5d3ed-f4fd-4063-a7df-57ec47fafa10" />
 
-que el id comenci per 3000
+Modificant aquest arxiu també podem fer que el ID comenci per 3000:
+
 <img width="458" height="175" alt="image" src="https://github.com/user-attachments/assets/fa40a4b8-b91a-46a8-9bdf-665e557bed1d" />
 
-que el home estigui en altre lloc 
+O que el /home estigui en altre lloc:
+
 <img width="707" height="306" alt="image" src="https://github.com/user-attachments/assets/6ed68c61-cef2-49ec-b559-d5ba1978dfb4" />
 
-canvair coses de passwd
+També podem canviar paràmetres de la contraasenya:
+
 <img width="822" height="202" alt="image" src="https://github.com/user-attachments/assets/a9066e1e-124b-4518-89e9-43416b5973fd" />
 
-comprovem que els canvis del fitxer adduser han funcionat i comprovem la caducitat de les passwd i que l'usuari se li ha creat lo del skel
+Ara comprovem que els canvis del fitxer han funcionat i comprovem la caducitat de les contrasenyes:
+
 <img width="854" height="488" alt="image" src="https://github.com/user-attachments/assets/1d0f9093-9b94-4076-b1c1-91c0cd0df307" />
 
-ara amb els arxius que modifiquen useradd
-canviar shell per defecte
+En l'arxiu `/etc/default/useradd` podem modificar paràmetres de la comanda `useradd` com la shell per defecte:
+
 <img width="857" height="251" alt="image" src="https://github.com/user-attachments/assets/e27f5f0b-46d2-47a2-91c5-a32ca8bee7f2" />
 
-fem les comprovacions
+Fem les comprovacions adients per veure els canvis:
+
 <img width="856" height="217" alt="image" src="https://github.com/user-attachments/assets/a79fb683-72e8-4167-8c86-a756c25cc8d8" />
 
-TITULO DE TODO ESTO personalitzacio de les comandes adduser i useradd, debajo de comandes basiques
 
-canviar el lloc on estem al fer la comanda pwd
+A l'arxiu /etc/skel/.profile podem canviar el lloc on estem a l'executar la comanda pwd:
+
 <img width="862" height="413" alt="image" src="https://github.com/user-attachments/assets/843bdd45-e309-48ac-b6bf-b2a9848e70a1" />
 
-crear alias para ejecutar un comando usando una palabra
+A l'arxiu /etc/skel/.bashrc podem crear un alias per a executar una comanda utilitzant una paraula concreta.
+
 <img width="860" height="261" alt="image" src="https://github.com/user-attachments/assets/7bb78bf0-6120-4185-b97e-2f7ac27f64da" />
 
+A l'arxiu /etc/skel/.bashrc_logout podem modificar el comportament quan sortim del terminal:
 
 <img width="852" height="227" alt="image" src="https://github.com/user-attachments/assets/2975631e-1a59-445a-a040-f53d44000e60" />
 
-accedim a l'usuari a traves del terminal i fem les comprovacions
+Ara accedim a l'usuari a travès del terminal i fem les comprovacions:
+
 <img width="1109" height="732" alt="image" src="https://github.com/user-attachments/assets/04c3ef3c-18c0-4dee-8ea2-96509e63c8c3" />
+
 <img width="1133" height="398" alt="image" src="https://github.com/user-attachments/assets/6eae412a-2ba1-4a99-8002-a52ab402cfb8" />
 
+### Permisos
 
-!!! EXERCICI crear personalitzacio al bashrc bashlogout i profile un nou usuari amb modificacions
+Amb les comandes `chown` i `chmod` podem canviar els permisos dels usuaris:
 
-# dia 18/11
-
-canviar permisos, dos maneres una amb dos comandes i una altra amb una
 <img width="800" height="779" alt="image" src="https://github.com/user-attachments/assets/42361882-8222-4cef-82ca-486c54508d23" />
 
-proves de que funcionen els permisos que hem donat abans
+I comprovem que funcionen els permisos que hem donat abans:
+
 <img width="805" height="679" alt="image" src="https://github.com/user-attachments/assets/7ab29fad-c0d1-4ce3-9487-e004c926cfd3" />
 
 <img width="858" height="710" alt="image" src="https://github.com/user-attachments/assets/48693b2c-2059-44c8-adfd-3d65e4fc437d" />
 
-permisos especials 
-(sticky) - nomes pot esborrar lo seu, no lo dels altres
+### Permisos especials 
+Aquí veiem el permís especial sticky, que fa que l'usuari només pugui esborrar lo seu, no lo dels altres. Es fa amb la comanda `chmod o+t`:
+
 <img width="873" height="815" alt="image" src="https://github.com/user-attachments/assets/a6b40229-fb0e-45c8-bc88-4df36237012a" />
+
+I amb aquesta comanda eliminem el permís:
+
 <img width="641" height="151" alt="image" src="https://github.com/user-attachments/assets/cfbdd18c-fbd9-4d39-8e15-d34df5e4fee4" />
 
-(suid)
+Ara veurem el permís especial SUID, que es dona amb la comanda `chmod u+s` i `chmod g+s`:
 <img width="702" height="156" alt="image" src="https://github.com/user-attachments/assets/337b8223-553e-4add-95cd-2c177e7e56ad" />
-exemple al moodle per fer el pas a pas d'exemple SUID
 
+---
 
 ## Còpies de seguretat i automatització de tasques
 
-
+---
 
 ## Quotes d'usuari
 
+---
 
+### ACLs
 
+Primer creem un directori i un arxiu per fer les proves i comprovem els permisos:
 
+<img width="642" height="586" alt="image" src="https://github.com/user-attachments/assets/bbc48fe0-0d9d-4c1d-b1a6-095c83c6d436" /> 
 
-
-
-mode temporal
-<img width="810" height="326" alt="image" src="https://github.com/user-attachments/assets/ef951cd5-da97-4b53-b7a9-7ae708eff851" />
-<img width="806" height="374" alt="image" src="https://github.com/user-attachments/assets/78b11076-4645-4fa1-ba86-87f72803d544" />
-<img width="804" height="261" alt="image" src="https://github.com/user-attachments/assets/826347b9-f4b4-478f-86ae-0daf385f2e04" />
-
-mode definitiu
-<img width="806" height="428" alt="image" src="https://github.com/user-attachments/assets/ad4372c2-f4f8-455c-9703-23a89a4850d7" />
-<img width="607" height="140" alt="image" src="https://github.com/user-attachments/assets/79b5ab8e-a684-45cc-a825-c5ab37542140" />
-
-
-
-# dia 24-11
-ACLs (gestió d'usuaris, permisos, etc)
-<img width="642" height="586" alt="image" src="https://github.com/user-attachments/assets/bbc48fe0-0d9d-4c1d-b1a6-095c83c6d436" /> (el ls- l sin el grep sobra)
+A continuació modifiquem els permisos d'ambdos i ho comprovem amb la comanda `getfacl`:
 
 <img width="749" height="521" alt="image" src="https://github.com/user-attachments/assets/fd3486b9-e761-4e09-92e5-bd45287e6185" />
 
-Definim la llista i comrpovem el que passa
+Definim la llista i comrpovem el que passa: 
+
 <img width="709" height="232" alt="image" src="https://github.com/user-attachments/assets/b68e5b78-332b-46f7-810d-f4ea6145603b" />
 
-l'usuari blau no te permisos, per tant no ens deixa
+L'usuari blau no te permisos, per tant no ens deixa:
+
 <img width="824" height="735" alt="image" src="https://github.com/user-attachments/assets/0dcf7363-d0da-49ee-ba54-9190be5d6bbd" />
 
-amb el roig ens deixa però no al directori var, però el missatge és diferent i pdoriem
+Amb el roig ens deixa però no al directori var, però el missatge és diferent i pooriem:
+
 <img width="831" height="739" alt="image" src="https://github.com/user-attachments/assets/1234cfb8-dd54-44f3-812b-2f7bd930aea3" />
 
-deixar els permisos com estaven al principi amb una comanda
+Amb la comanda `setfacl -b` pdoem deixar els permisos com estaven per defecte:
+
 <img width="713" height="484" alt="image" src="https://github.com/user-attachments/assets/de635c32-9066-46ff-8a52-de6653d80af1" />
 
-denegar l'accès a la carpeta
+També ens permet denegar l'accès a una carpeta a un usuari concret:
+
 <img width="750" height="401" alt="image" src="https://github.com/user-attachments/assets/2f55aa96-3a3f-48dd-b548-35af1816c608" />
 
-# dia 25-11
-UMASK
-explicar teoria foto movil
+### UMASK
+
+* Sistema de permisos i Umask (User Mask)
+
+Aquest esquema resumeix la lògica interna de com Linux calcula els permisos per defecte quan es creen fitxers o directoris nous.
+
+1. Els 4 Nivells de Gestió de Permisos
+
+A l'esquerra de la imatge es defineixen les quatre capes de seguretat:
+
+1.  **UGO (User, Group, Others):** El sistema estàndard de permisos (rwx) per a propietari, grup i la resta del món.
+2.  **Permisos Especials:** Bits avançats com SUID, SGID i Sticky Bit.
+3.  **ACLs (Access Control Lists):** Permisos granulars per a usuaris específics.
+4.  **Màscara (Umask):** El filtre que determina els permisos inicials per defecte.
+
+---
+
+2. Taula de conversió: Octal a binari
+
+Per entendre els càlculs, cal conèixer la relació entre els valors numèrics i els permisos:
+
+| Octal | Binari | Text (Símbols) | Significat |
+| :---: | :---: | :---: | :--- |
+| **0** | `000` | `---` | Cap permís |
+| **1** | `001` | `--x` | Execució |
+| **2** | `010` | `-w-` | Escriptura |
+| **3** | `011` | `-wx` | Escriptura + Execució |
+| **4** | `100` | `r--` | Lectura |
+| **5** | `101` | `r-x` | Lectura + Execució |
+| **6** | `110` | `rw-` | Lectura + Escriptura |
+| **7** | `111` | `rwx` | Lectura, Escriptura i Execució |
+
+---
+
+3. La Lògica del càlcul de la Umask
+
+La **Umask** actua com una "resta" o filtre. El sistema comença amb uns permisos màxims (Base) i li "resta" el valor de la Umask.
+
+* Permisos base (Punt de partida)
+* **📂 Directoris:** `777` (`rwxrwxrwx`)
+* **📄 Fitxers:** `666` (`rw-rw-rw-`) *(Nota: Els fitxers mai es creen amb execució per seguretat).*
+
+#### Exemples de Càlcul (Segons la imatge)
+
+**A. Usuari Root (Umask típica: 022)**
+La màscara `022` prohibeix l'escriptura al grup i als altres.
+
+* **Directori:** `777` (Base) - `022` (Mask) = **`755`** (`rwxr-xr-x`)
+* **Fitxer:** `666` (Base) - `022` (Mask) = **`644`** (`rw-r--r--`)
+
+**B. Usuaris Normals / Altres (Umask típica: 002)**
+La màscara `002` permet l'escriptura al grup (útil per col·laborar), però la prohibeix als altres.
+
+* **Directori:** `777` - `002` = **`775`** (`rwxrwxr-x`)
+* **Fitxer:** `666` - `002` = **`664`** (`rw-rw-r--`)
+
+---
+
+4. L'Operació Binària (Detall Tècnic)
+
+Tot i que parlem de "resta", tècnicament és una operació lògica (`AND NOT`). Si la màscara té un bit actiu, aquest bit s'apaga en el resultat final.
+
+Exemple del càlcul del número 5 a partir del 7 i la màscara 2:
+
+
+  1 1 1   (7 - Permís Total)
+  0 1 0   (2 - La Umask "bloqueja" el del mig)
+  -----
+  1 0 1   (5 - Resultat: r-x)
+
+<img width="1007" height="551" alt="image" src="https://github.com/user-attachments/assets/33ee3dac-a048-4ef3-86a4-bab61940e173" />
+
+Amb la comanda `umask` podem veure la nostra màscara:
 
 <img width="726" height="175" alt="image" src="https://github.com/user-attachments/assets/c0f7bfab-e431-4341-8600-8af866ad8496" />
 
-per a canviar la màscara de tots els usuaris ho podem fer des d'aquest arxiu 
+Per a canviar la màscara de tots els usuaris ho podem fer des d'aquest arxiu **/etc/login.defs**:  
+
 <img width="851" height="523" alt="image" src="https://github.com/user-attachments/assets/338f8021-59c5-4d48-a33f-c58e1b0c32e5" />
 
-per a canviar-lo nomes en un usuari editem l'arxiu .profile
+Per a canviar-lo nomes en un usuari editem l'arxiu .profile:
+
 <img width="846" height="647" alt="image" src="https://github.com/user-attachments/assets/0cf71301-83e2-4540-8f29-61debef95c9d" />
 
-amb la comanda umask podem canviar la màscara de manera temporal per  l'usuari actual
+Amb la comanda `umask [màscara]` podem canviar la màscara de manera temporal per  l'usuari actual:
+
 <img width="764" height="257" alt="image" src="https://github.com/user-attachments/assets/24705d1d-d766-415d-a72a-2b9f0e2d8221" />
 
+Per a fer-ho definitiu per a tots els usuaris modifiquem aquest arxiu **/etc/login.defs**:
 
-per a fer-ho definitiu per a tots els usuaris modifiquem aquest arxiu
 <img width="840" height="506" alt="image" src="https://github.com/user-attachments/assets/b49cd404-9778-4e44-bf57-772391b52e99" />
 
-comprovem els canvis
+Comprovem els canvis:
+
 <img width="658" height="275" alt="image" src="https://github.com/user-attachments/assets/f142de3b-ec7a-4fea-959e-30d63b087078" />
 
