@@ -1,11 +1,30 @@
 # 🚀 Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers
 
-## Sistemes de fitxers i particions
+# Sistemes de fitxers i particions
 
-esto para sistema de fitxers 
+Un sistema de fitxers és l'estructura lògica que utilitza un sistema operatiu per organitzar, emmagatzemar i recuperar dades en un disc dur o memòria USB. Sense ell, el disc seria només un conjunt de dades sense sentit.
+
+A continuació, desglosem els tipus més comuns, les seves limitacions i com identificar-los.
+
+## 1. Tipus principals segons el Sistema Operatiu
+
+Cada entorn té els seus formats predilectes, optimitzats per rendiment, seguretat o compatibilitat:
+
+* **Entorn Windows:**
+    * **NTFS (New Technology File System):** És l'estàndard actual per als discs durs interns de Windows. Suporta permisos de seguretat avançats i fitxers grans.
+    * **FAT32:** Un format antic però molt compatible (funciona en consoles, ràdios de cotxe, Mac, Linux, etc.).
+    * **exFAT:** L'evolució del FAT32. Elimina la limitació de mida de fitxer però manté la compatibilitat. 
+
+* **Entorn Linux:**
+    * **ext4:** L'estàndard en Linux. És molt estable i redueix la fragmentació del disc, evitant que el sistema es ralentitzi amb el temps.
+    * **XFS:** Sovint utilitzat en servidors perquè gestiona molt bé fitxers extremadament grans i volums de dades massius.
+ 
+  Per a veure el sistema de fitxers que tenim muntat i el tipus podem fer servir la comanda `df -Th`:
+
 <img width="803" height="250" alt="image" src="https://github.com/user-attachments/assets/5da20936-6585-4d0f-aacb-efed6d4f92e2" />
 
-  ### Mida sector (és la unitat mínima física on se guarden les dades en un disc, per defecte la mida són 512 bytes i no es pot modificar.)
+  ## Mida sector 
+  És la unitat mínima física on se guarden les dades en un disc. Per defecte la mida són 512 bytes i no es pot modificar.
   <img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
 
 <img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
