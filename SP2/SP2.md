@@ -456,20 +456,6 @@ La màscara `002` permet l'escriptura al grup (útil per col·laborar), però la
 * **Directori:** `777` - `002` = **`775`** (`rwxrwxr-x`)
 * **Fitxer:** `666` - `002` = **`664`** (`rw-rw-r--`)
 
----
-
-4. L'Operació Binària (Detall Tècnic)
-
-Tot i que parlem de "resta", tècnicament és una operació lògica (`AND NOT`). Si la màscara té un bit actiu, aquest bit s'apaga en el resultat final.
-
-Exemple del càlcul del número 5 a partir del 7 i la màscara 2:
-
-
-  1 1 1   (7 - Permís Total)
-  0 1 0   (2 - La Umask "bloqueja" el del mig)
-  -----
-  1 0 1   (5 - Resultat: r-x)
-
 <img width="1007" height="551" alt="image" src="https://github.com/user-attachments/assets/33ee3dac-a048-4ef3-86a4-bab61940e173" />
 
 Amb la comanda `umask` podem veure la nostra màscara:
