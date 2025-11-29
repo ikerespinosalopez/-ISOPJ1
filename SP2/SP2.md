@@ -1,6 +1,6 @@
 # 🚀 Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers
 
-# Sistemes de fitxers i particions
+# 💾 Sistemes de fitxers i particions
 
 Un sistema de fitxers és l'estructura lògica que utilitza un sistema operatiu per organitzar, emmagatzemar i recuperar dades en un disc dur o memòria USB. Sense ell, el disc seria només un conjunt de dades sense sentit.
 
@@ -40,16 +40,16 @@ En la següent imatge podem veure com creem un fitxer de text amb contingut i a 
 <img width="802" height="183" alt="image" src="https://github.com/user-attachments/assets/f860d2c5-0ead-4d6c-ab89-9dc99e329575" />
 
   
-## Fragmentació interna 
+## 🧩 Fragmentació interna 
 La fragmentació interna es produeix quan l'espai assignat a un fitxer és més gran que la mida real d'aquest fitxer, resultant en un malbaratament d'espai al disc.
   
-## Fragmentació externa 
+## 🧩 Fragmentació externa 
 És quan un arxiu no està guardat en blocs consecutius de la memòria i els seus accessos són més lents, i, per tant, baixa el rendiment. En Windows tenim una eina anomenada desfragmentador de discos que ens permet solucionar aquest problema, a Linux per norma general no fa falta, ja que el sistema de fitxers ext4 està més optimitzat. 
 De totes maneres, si volem comprovar-ho podem fer servir la comanda `e4defrag`, amb els paràmetres -c fem un diagnòstic i l'indiquem la nostra carpeta a comprovar: 
 
 <img width="933" height="565" alt="image" src="https://github.com/user-attachments/assets/2e614592-aee5-47e3-8abc-990f3dac8e30" />
   
-## Tipus de formateig
+## 💾 Tipus de formateig
 * **Baix nivell:** Esborra tot, arixus, sistema de fitxers i intenta reparar sectors defectuosos, però es necessiten programes especifics, no es pot fer a travès del SO.
 * **Mig nivell:** Formateig lent, no borra arxius però si es troba sectors dfectuosos els marca, però no els repara.
 * **Alt nivell:** No es borren els arxius, només s'esborra el sistema de fitxers. Si troba sectors defectuosos els ignora totalment. 
@@ -114,36 +114,52 @@ Per interactuar amb aquests processos des de la línia de comandes, disposem d'u
 Aquests conceptes són la base per a una administració eficaç del sistema.
 
 
-# Gestió d'usuaris i grups i permisos
+## 🔑 Gestió d'usuaris i grups i permisos
+La **gestió d'usuaris, grups i permisos** és l'estructura fonamental que garanteix la seguretat i el control d'accés en els sistemes de tipus Linux. Aquest sistema defineix qui pot interactuar amb els recursos i de quina manera.
 
-# dia 4/11 Usuaris, grups, permisos
-Eina ALternativa per a poder gestionar graficament usuaris i grups
+Els **usuaris** són les identitats individuals que tenen accés al sistema. Per administrar-los de manera eficient, s'organitzen en **grups**. Els grups faciliten l'aplicació de regles col·lectives a un conjunt de comptes.
+
+La clau d'aquesta administració resideix en els **permisos**, que són les regles que defineixen si un usuari o un grup concret pot llegir, escriure o executar un fitxer o directori. Aquest control estricte és essencial per protegir la integritat i la confidencialitat de les dades del sistema.
+
+Existeix una eina alternativa per a poder gestionar gràficament els usuaris i grups, tot i que no es pot aprofundir tant com amb les comandes i fitxers que veurem més endavant.
+La podem instal·lar amb la comanda `sudo apt install gnome-system-tools`, i un cop oberta podrem veure un llistat dels usuaris, on podem afegir i suprimir-los, una secció per a la gestió dels grups i dins de cada usuari veurem el nom, el tipus de compte i la contrassenya.
+
 <img width="806" height="457" alt="image" src="https://github.com/user-attachments/assets/38ab2536-8683-4ffd-90b1-9090856667a6" />
 
-# Fitxers implicats
-Aquest fitxer té tots els usuaris del sistema, seleccionar usuari i explicar 
-/etc/passwd <img width="918" height="810" alt="image" src="https://github.com/user-attachments/assets/acd4b78c-2ada-4740-90dd-0a7ba15a9f4f" />
+### Fitxers implicats
+A continuació veurem una sèrie de fitxers que tenen una alta importància a l'hora de gestionar els usuaris, grups i permisos. 
+Comencem amb el fitxer **/etc/passwd**, que conté tots els usuaris del sistema. Veiem a la imatge que tenim seleccionat el nostre usuari i se'ns indiquen una sèrie de paràmetres, en ordre: nom d'usuari > contrasenya > UID > GID > GECOS > Directori personal > Intèrpret d'ordres:
 
-/etc/group
-Té tots els grups del sistema i els usuaris que formen part del grup
+<img width="918" height="810" alt="image" src="https://github.com/user-attachments/assets/acd4b78c-2ada-4740-90dd-0a7ba15a9f4f" />
+
+Seguim amb un altre fitxer de gran valor, és el **/etc/group**, on podem trobar tots els grups del sistema, juntament amb els usuaris que formen part del grup.
+
 <img width="922" height="813" alt="image" src="https://github.com/user-attachments/assets/6554b7b7-806e-44f2-b20f-1e140bbf6aae" />
 
-/etc/shadow
-Aqui trobem per a cada usuari el seu password encriptat i al final la caducitat de les contraseyes 
+A continnuació tenim el fitxer **/etc/shadow**, aqui trobem per a cada usuari el seu password encriptat i al final la caducitat de les contrasenyes.
+
 <img width="915" height="796" alt="image" src="https://github.com/user-attachments/assets/f8e95762-2c61-449d-bc0e-c7465f7d3825" />
 
-/etc/gshadow
-Passwords de grups i permet veure els usuaris que formen part del grup, la diferencia amb el group es que aqui es l'unic lloc on es pot veure l'usuari administrador del grup, que només pot haver un.
+Per últim tenim **/etc/gshadow** que conté passwords de grups i permet veure els usuaris que formen part del grup, la diferència amb l'arxiu /etc/group és que aqui es l'únic lloc on es pot veure l'usuari administrador del grup, que només pot haver un.
+
 <img width="919" height="817" alt="image" src="https://github.com/user-attachments/assets/461443fe-6be7-411a-9aa4-7aa10d1c9b6b" />
 
-# Comandes bàsiques
-afegir usuari adduser
+### Comandes bàsiques
+
+Les comandes de gestió d'usuaris són eines essencials per a l'administrador del sistema. Permeten controlar qui té accés al sistema i quins permisos bàsics se'ls assignen. A continuació veurem una sèrie d'ordres bàsiques per a la gestió.
+
+
+Primer tenim la comanda `adduser`, que crea un nou compte d'usuari de manera senzilla i interactiva, establint automàticament el seu directori personal i assignant la contrasenya.
+
 <img width="883" height="660" alt="image" src="https://github.com/user-attachments/assets/1427e024-2afb-4aa8-9d6f-8cdce63d6990" />
 
-Les carpetes apareixen un cop hem iniciat sessió amb l'usuari que hem creat.
+En un principi no les veurem, però si iniciem sessió amb l'usuari nou podrem veure que ens apareixen les seves carpetes:
+
 <img width="920" height="343" alt="image" src="https://github.com/user-attachments/assets/b7e64456-d5c8-41f7-b67c-bc0d1ff674a9" />
 
-afegir usuari useradd
+
+També tenim la comanda `useradd`. Afegeix un nou compte d'usuari, creant la seva entrada a **/etc/passwd** i el seu directori personal.
+
 <img width="926" height="745" alt="image" src="https://github.com/user-attachments/assets/1b2d6871-96fa-4a17-985f-e967ed5d7b94" />
 
 grupos
