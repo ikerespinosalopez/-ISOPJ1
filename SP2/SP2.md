@@ -24,7 +24,9 @@ Per a veure el sistema de fitxers que tenim muntat i el tipus podem fer servir l
 <img width="803" height="250" alt="image" src="https://github.com/user-attachments/assets/5da20936-6585-4d0f-aacb-efed6d4f92e2" />
 
 ## Mida sector 
-És la unitat mínima física on se guarden les dades en un disc. Per defecte la mida són 512 bytes i no es pot modificar.
+És la unitat mínima física on se guarden les dades en un disc. Per defecte la mida són 512 bytes i no es pot modificar. A la imatge podem veure com se'ns indica la mida del sector:
+
+<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
 
 ## Mida block 
 També es pot dir clúster, la seva mida és la unitat mínima lògica on es guarden les dades a nivell de sistema operatiu. Per defecte són 4096 bytes (8 sectors) i aquesta mida sí que la podem modificar quan es formateja la partició. Cada partició del disc pot tenir una mida de bloc i un sistema de fitxers diferent.
@@ -61,26 +63,33 @@ Una partició és un tros físic del disc dur i un volum és una capa d'abstracc
 
 2. Podem comprovar que el sistema detecta el nou disc amb `fdisk -l`:
 
-<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
+<img width="819" height="298" alt="image" src="https://github.com/user-attachments/assets/7af12abd-f32e-49ca-b0e3-bba73c82b255" />
 
 ### GPARTED
-<img width="1107" height="420" alt="image" src="https://github.com/user-attachments/assets/515b2cc9-1b74-4bbd-bf11-09f5b93a6d10" />
-    esto para gparted
+Instal·lem el GParted amb la comanda `sudo apt install gparted`. Un cop fet l'iniciem i podrem veure el disc que hem afegit prèviament.
+
 <img width="1107" height="420" alt="image" src="https://github.com/user-attachments/assets/515b2cc9-1b74-4bbd-bf11-09f5b93a6d10" />
 
-    #### Comandes
+### Comandes
+Ara veurem les comandes per a dur a terme un procés d'inicialització i formatació de dues particions de disc diferents (/dev/sdb1 i /dev/sdb2) amb dos sistemes de fitxers completament diferents (Linux i Windows). Aquest procés prepara les particions per emmagatzemar dades d'una manera organitzada.
 
-esto para comandes
-<img width="819" height="298" alt="image" src="https://github.com/user-attachments/assets/7af12abd-f32e-49ca-b0e3-bba73c82b255" />
+Primer crearem un sistema de fitxers ext4, formatant la partició i definint la mida del bloc a 2048 bytes per a evitar una possible fragmentació interna, optimitzant l'espai del disc tenint en compte que l'utilitzarem per a guardar molts fitxers petits. Ho farem amb la comanda `mkfs.ext4 -b 2048 /dev/sdb1`:
+
 <img width="807" height="296" alt="image" src="https://github.com/user-attachments/assets/4a22fd1c-7a8f-4ff4-af92-043dd7ba202e" />
+
+A continuació formatem la segona partició amb el sistema de fitxers de Windows NTFS amb la comanda `mkfs.ntfs /dev/sdb2`:
+
 <img width="703" height="138" alt="image" src="https://github.com/user-attachments/assets/63bfee4f-9b74-4ff7-b769-c73e532d5b41" />
+
+A la sgüent imatge podem veure com comprovar de dues maneres diferents la creació i formatació de les dues particions. Amb el terminal, fem servir la comanda `tune2fs - l /dev/sdb1 | grep Block` per a veure tota la informacióp del superbloc, on ens confirmen la mida del bloc i el nombre total de blocs. D'altra banda tenim l'eina GParted, on podem veure gràficament l'estructura, el tipus de sistema de fitxers i la mida.
+
 <img width="771" height="445" alt="image" src="https://github.com/user-attachments/assets/b4a41272-e767-4659-8091-8a4efc4b7b90" />
     
 ## Gestió de processos
 
 
 
-## Gestió d'usuaris i grups i permisos
+# Gestió d'usuaris i grups i permisos
 
 # dia 4/11 Usuaris, grups, permisos
 Eina ALternativa per a poder gestionar graficament usuaris i grups
