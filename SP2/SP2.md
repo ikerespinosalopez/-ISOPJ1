@@ -57,14 +57,12 @@ Una partició és un tros físic del disc dur i un volum és una capa d'abstracc
 
 1. Preparació de l'equip: Afegim un disc de 10GB a la nostra màquina virtual Ubuntu:
 
-<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
+<img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
 
 2. Podem comprovar que el sistema detecta el nou disc amb `fdisk -l`:
 
-<img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
+<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
 
-<img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
-  
 ### GPARTED
 <img width="1107" height="420" alt="image" src="https://github.com/user-attachments/assets/515b2cc9-1b74-4bbd-bf11-09f5b93a6d10" />
     esto para gparted
