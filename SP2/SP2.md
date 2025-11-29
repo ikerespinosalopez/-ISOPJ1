@@ -26,8 +26,6 @@ Per a veure el sistema de fitxers que tenim muntat i el tipus podem fer servir l
 ## Mida sector 
 És la unitat mínima física on se guarden les dades en un disc. Per defecte la mida són 512 bytes i no es pot modificar.
 
-<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
-
 ## Mida block 
 També es pot dir clúster, la seva mida és la unitat mínima lògica on es guarden les dades a nivell de sistema operatiu. Per defecte són 4096 bytes (8 sectors) i aquesta mida sí que la podem modificar quan es formateja la partició. Cada partició del disc pot tenir una mida de bloc i un sistema de fitxers diferent.
 
@@ -59,10 +57,12 @@ Una partició és un tros físic del disc dur i un volum és una capa d'abstracc
 
 1. Preparació de l'equip: Afegim un disc de 10GB a la nostra màquina virtual Ubuntu:
 
-<img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
+<img width="784" height="485" alt="image" src="https://github.com/user-attachments/assets/488e91cf-9b35-4619-9790-72821b9c2cd7" />
 
 2. Podem comprovar que el sistema detecta el nou disc amb `fdisk -l`:
-   
+
+<img width="834" height="427" alt="image" src="https://github.com/user-attachments/assets/5627f21c-b230-49bf-8ccb-67c99ea04e3b" />
+
 <img width="862" height="535" alt="image" src="https://github.com/user-attachments/assets/a698f0b7-a1b7-4d38-8b06-e6aa9fdcebe9" />
   
 ### GPARTED
