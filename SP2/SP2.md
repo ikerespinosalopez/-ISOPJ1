@@ -85,8 +85,33 @@ A la sgüent imatge podem veure com comprovar de dues maneres diferents la creac
 
 <img width="771" height="445" alt="image" src="https://github.com/user-attachments/assets/b4a41272-e767-4659-8091-8a4efc4b7b90" />
     
-## Gestió de processos
+## ⚙️ Gestió de processos
+Un **procés** es defineix com la instància dinàmica resultant d'executar un codi o programa. És l'element bàsic de treball que el sistema operatiu ha de gestionar, planificar i monitoritzar constantment per garantir el funcionament fluid del sistema.
 
+***
+
+Per a la seva gestió eficient, el Sistema Operatiu (SO) atorga a cada procés dues identificacions crucials:
+
+* **Identificador de Procés (PID):** Una matrícula numèrica **exclusiva** i temporal assignada al procés durant tota la seva vida útil.
+* **Usuari vinculat:** El procés està lligat a l'usuari que el va iniciar, del qual **hereta automàticament tots els permisos i restriccions de seguretat**.
+
+Durant la seva existència, un procés canvia constantment d'estat (per exemple, de **Actiu** a **En Espera** de recursos, o a **Zombi** després de finalitzar, a l'espera de ser netejat), sent el **SO l'àrbitre principal** (scheduler), encarregat d'administrar-ne la planificació i l'ús del temps de la CPU (CPU scheduling).
+
+***
+
+Per interactuar amb aquests processos des de la línia de comandes, disposem d'un conjunt d'utilitats classificades segons la seva finalitat:
+
+| Acció | Comandes Essencials | Detalls i Finalitat |
+| :--- | :--- | :--- |
+| **Visualització** | `ps`, `top`, `htop` | Permeten monitoritzar l'estat actual, el consum de memòria i CPU, i la llista completa de tasques actives. |
+| **Finalització** | `kill`, `pkill` | S'utilitzen per aturar processos específics (usant el PID) o grups de processos (usant el nom o l'usuari). |
+| **Priorització** | `nice`, `renice` | Ajusten la prioritat d'accés a la CPU, permetent que uns processos tinguin més recursos que d'altres (valor "niceness"). |
+| **Gestió de Serveis** | `systemctl`, `service` | Controlen els daemons (programes que s'executen en segon pla), com iniciar, aturar o reiniciar serveis del sistema. |
+
+* **Permisos:** Un procés només pot accedir als recursos que li permet l'usuari sota el qual s'executa.
+* **Tipus d'Execució:** Un procés pot funcionar com a part d'una sessió interactiva (procés de *foreground*) o com un servei de fons (*daemon*).
+
+Aquests conceptes són la base per a una administració eficaç del sistema.
 
 
 # Gestió d'usuaris i grups i permisos
