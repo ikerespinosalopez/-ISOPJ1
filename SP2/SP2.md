@@ -482,3 +482,36 @@ Comprovem els canvis:
 
 <img width="658" height="275" alt="image" src="https://github.com/user-attachments/assets/f142de3b-ec7a-4fea-959e-30d63b087078" />
 
+
+
+## dia 2/12 Gestió de processos
+CHECKLIST: Provar Ps tree, top, htop, btop, ps aux, kill -9 PID, diferència entre ctrl c, cntrl z, comanda jobs, comanda fg per a tornar a primer pla, renice, nice, 
+
+Amb la comanda `pstree -p -h [usuari]`podem filtrar els processos per usuari:
+
+<img width="926" height="948" alt="image" src="https://github.com/user-attachments/assets/b2836d1d-26b5-4cdf-801e-98509d05685c" />
+
+Filtrem per a trobar els processos del terminal
+
+<img width="928" height="292" alt="image" src="https://github.com/user-attachments/assets/75535bcc-c283-4550-8cf9-272fc58470a3" />
+
+`ps aux` explicar cada columna
+<img width="960" height="906" alt="image" src="https://github.com/user-attachments/assets/e4248d33-e963-400b-8a36-d212e4056f38" />
+
+`ps aux` filtrado para ver el gnome-terminal de alumnat
+<img width="946" height="198" alt="image" src="https://github.com/user-attachments/assets/cccda48b-7572-46c9-972c-20dd960a7225" />
+
+Ara amb la comanda `kill -9 [PID]` podem "matar" a un procès
+
+Entrem a top, Cntrl c matem, control z aturem i amb jobs podem veure els aturats, si volem tornar a executar-lo es `fg %[n.job]`
+- buscar captura
+
+`top &` el ampersand es per a executar processos en segon pla
+<img width="596" height="134" alt="image" src="https://github.com/user-attachments/assets/a1976015-2d8c-40ed-83e6-02d0e436e297" />
+
+renice per a modificar prioritat de processos que ja estan en start y nice llençar processos en una prioritat determinada.
+
+<img width="944" height="697" alt="image" src="https://github.com/user-attachments/assets/91273615-bb81-4bc1-b106-e8404d5d11e4" />
+<img width="934" height="416" alt="image" src="https://github.com/user-attachments/assets/38f8256c-ad8a-4c06-94e3-606becb4c5da" />
+
+
