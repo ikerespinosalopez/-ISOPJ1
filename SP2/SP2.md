@@ -363,6 +363,8 @@ Ara veurem el permís especial SUID, que es dona amb la comanda `chmod u+s` i `c
 ---
 
 ## Còpies de seguretat i automatització de tasques
+!!!!! Crear dos discos durosde 1 gb en una maquina virtual
+
 
 ---
 
@@ -514,4 +516,5 @@ renice per a modificar prioritat de processos que ja estan en start y nice llen�
 <img width="944" height="697" alt="image" src="https://github.com/user-attachments/assets/91273615-bb81-4bc1-b106-e8404d5d11e4" />
 <img width="934" height="416" alt="image" src="https://github.com/user-attachments/assets/38f8256c-ad8a-4c06-94e3-606becb4c5da" />
 
+## dia 9/12 Copies de seguretat
 
