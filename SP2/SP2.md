@@ -517,4 +517,57 @@ renice per a modificar prioritat de processos que ja estan en start y nice llen�
 <img width="934" height="416" alt="image" src="https://github.com/user-attachments/assets/38f8256c-ad8a-4c06-94e3-606becb4c5da" />
 
 ## dia 9/12 Copies de seguretat
+mount -t ext4 /dev/sdc /var/copies
+ls var copies
+cd var
+mkdir clonacio
+mount -t ext 4 dev sdd var clonacio
+dd if=/dev/sdc of=/dev/sdd bs=1M status=progress
+md5sum /dev/sdc /dev/sdd
+ls clonacio
+<img width="804" height="509" alt="image" src="https://github.com/user-attachments/assets/bd3bbf24-c22e-44d7-ba48-af2b4fbed83e" />
 
+!!! (4. ) hay que hacer cosas estan en el documento copies.odt
+se tiene que ver como hacemos copies y las restauramos
+
+Cron i anacron 
+Son dos eines d'automatitzacio que permeten executar tasques periòdiques
+Diferències
+Cron executa tasques programades en una data i una hora específiques. Si el sistema està apagat la tasca es perd. És ideal per a tasques en dates i hores concretes i per a accions específiques d'un usuari.
+
+Anacron és ideal per a executar tasques periòdiques on no cal una data i una hora específiques. Normalment s'utilitza per a tasques de manteniment del sistema i no requereix que el sistema estigui obert, quan s'obre el sistema s'executa.
+
+Tot lo que posem dins de /etc/crontab afecta a tots els usuaris.
+<img width="862" height="617" alt="image" src="https://github.com/user-attachments/assets/8c3b3101-3119-4456-9f56-f001e355f081" />
+
+Si volem programar una tasca per a un usuari especific
+<img width="604" height="270" alt="image" src="https://github.com/user-attachments/assets/a93f9233-22cb-47e1-b9d5-6cd90186b38e" />
+<img width="861" height="651" alt="image" src="https://github.com/user-attachments/assets/f41ce5ed-8d96-4930-a8cd-aaa19de9521a" />
+
+Carpetes predefinides de cron. Tot està lligat amb una programació de l'anacron
+<img width="607" height="230" alt="image" src="https://github.com/user-attachments/assets/d8175ed6-94cd-45e8-b955-ca3fb5ff4012" />
+<img width="866" height="381" alt="image" src="https://github.com/user-attachments/assets/36a19013-1c19-4c50-baa8-c480804a2b35" />
+
+script per a fer una copia del escriptori i guardarla 
+<img width="1020" height="213" alt="image" src="https://github.com/user-attachments/assets/27053368-abb6-43e0-9155-9c75ce85c764" />
+
+li donem permisos per a executar i comprovem
+<img width="1081" height="413" alt="image" src="https://github.com/user-attachments/assets/be12da6d-6e3b-40b4-b0c7-f20ae82aee90" />
+
+
+creem dos imatges de prova per a fer la copia de seguretat
+<img width="745" height="179" alt="image" src="https://github.com/user-attachments/assets/548ea2c7-e3bf-4fd6-bb9b-b637eba211b7" />
+
+anem a l'arxiu etc crontab i afegim la següent linia
+<img width="1021" height="600" alt="image" src="https://github.com/user-attachments/assets/34f32c86-82ed-4137-b6b1-0b00ba80cef2" />
+
+un cop arribada la hora podem veure com es crea una carpeta a l'escriptori amb els arxius
+<img width="1036" height="900" alt="image" src="https://github.com/user-attachments/assets/075303db-c8e2-465d-97ea-fbff2a48b71b" />
+
+<img width="816" height="118" alt="image" src="https://github.com/user-attachments/assets/5fc46ef8-db19-4f9e-94c8-c77097ff2a04" />
+
+s'executa una vegada al dia i s'espera un minut per a fer-lo des de que s'inicia el sistema operatiu
+<img width="872" height="389" alt="image" src="https://github.com/user-attachments/assets/761925b6-183e-48bc-91b5-590c8289a4a7" />
+<img width="866" height="693" alt="image" src="https://github.com/user-attachments/assets/574e09d3-95f8-4891-9e81-35111fb680b6" />
+
+++ programar un script
