@@ -571,3 +571,52 @@ s'executa una vegada al dia i s'espera un minut per a fer-lo des de que s'inicia
 <img width="866" height="693" alt="image" src="https://github.com/user-attachments/assets/574e09d3-95f8-4891-9e81-35111fb680b6" />
 
 ++ programar un script
+
+
+## dia 15/12 Quotes de disc o usuari
+Es la limitació que es dona als usuaris d'espai de disc
+
+fdisk -l 
+<img width="716" height="324" alt="image" src="https://github.com/user-attachments/assets/f7aefb57-5210-4457-ac59-6148b77f224c" />
+
+installem quota
+<img width="878" height="644" alt="image" src="https://github.com/user-attachments/assets/466fb575-b829-4e08-b77c-e38733c8620f" />
+
+creem una carpeta a /mnt/ per a les dades dels usuaris
+<img width="616" height="143" alt="image" src="https://github.com/user-attachments/assets/6659ce86-5afa-4435-9d9e-2214fc72d81d" />
+
+editem l'arxiu /etc/fstab
+<img width="873" height="457" alt="image" src="https://github.com/user-attachments/assets/3ac86c3e-3550-458d-83d5-877b19638252" />
+
+dos maneres de veure que el muntatge està bé
+<img width="807" height="388" alt="image" src="https://github.com/user-attachments/assets/f87db7ef-7323-4039-9702-622ac8b8e45c" />
+
+<img width="811" height="105" alt="image" src="https://github.com/user-attachments/assets/17dbd9cf-bb56-4511-9b50-7f42e271a079" />
+
+<img width="798" height="44" alt="image" src="https://github.com/user-attachments/assets/138dfc49-3f77-42a3-8630-8b47918cce0a" />
+
+<img width="788" height="282" alt="image" src="https://github.com/user-attachments/assets/cd6fc588-2797-4453-9d35-8ee8d357f865" />
+
+es pot configurar per blocs o per inode, soft vol dir que l'usuari té un limit d'un mega, i es pot sobrepassar fins a arribar al hard, que no es pot sobrepassar mai. 
+<img width="867" height="318" alt="image" src="https://github.com/user-attachments/assets/417c71dd-2229-49bb-aa38-7576f36e7d40" />
+
+li donem permisos
+<img width="761" height="289" alt="image" src="https://github.com/user-attachments/assets/537b6d4d-447f-4b95-a49d-1deb1bc89b86" />
+
+accedim amb un altre usuari
+<img width="863" height="268" alt="image" src="https://github.com/user-attachments/assets/277ff21c-febb-4d04-9e3f-d789d4f15d9a" />
+
+<img width="847" height="566" alt="image" src="https://github.com/user-attachments/assets/7bb2818a-9ddc-4ac5-9f8d-c949c2b6b7fb" />
+
+<img width="860" height="377" alt="image" src="https://github.com/user-attachments/assets/37739453-1b96-4109-b152-7686e06e4359" />
+
+<img width="855" height="431" alt="image" src="https://github.com/user-attachments/assets/6dee7bcf-bdb3-4609-b83f-c7bceed670fd" />
+
+modificar periode de gracia, afecta a toto el disc i tots els usuaris
+<img width="867" height="219" alt="image" src="https://github.com/user-attachments/assets/89ed2fca-cb51-49fa-8423-eb27baa8610f" />
+
+si volem que només afecti a un usuari ho podem fer de la següent manera
+<img width="865" height="328" alt="image" src="https://github.com/user-attachments/assets/bf08c4ec-e09e-41d7-b57f-0f30984f024d" />
+
+
+
