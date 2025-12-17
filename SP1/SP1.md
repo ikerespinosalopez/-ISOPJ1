@@ -1,3 +1,8 @@
+---
+layout: default
+title: Título de la página
+---
+
 # ⚡ Sprint 1: Instal·lació i Configuració Inicial
 
 
