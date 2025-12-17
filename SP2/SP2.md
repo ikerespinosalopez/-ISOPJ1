@@ -358,33 +358,25 @@ I amb aquesta comanda eliminem el permís:
 <img width="641" height="151" alt="image" src="https://github.com/user-attachments/assets/cfbdd18c-fbd9-4d39-8e15-d34df5e4fee4" />
 
 Ara veurem el permís especial SUID, que es dona amb la comanda `chmod u+s` i `chmod g+s`:
+
 <img width="702" height="156" alt="image" src="https://github.com/user-attachments/assets/337b8223-553e-4add-95cd-2c177e7e56ad" />
 
 ---
 
 ## Còpies de seguretat i automatització de tasques
 
-mount -t ext4 /dev/sdc /var/copies
-ls var copies
-cd var
-mkdir clonacio
-mount -t ext 4 dev sdd var clonacio
-dd if=/dev/sdc of=/dev/sdd bs=1M status=progress
-md5sum /dev/sdc /dev/sdd
-ls clonacio
+Primer es preparen els punts de muntatge i es connecten els dispositius d'origen i de destí al sistema de fitxers per assegurar-ne l'accés amb les comandes `mount -t ext4 /ruta/disc1 /ruta/destí` ,`mkdir clonació` i `mount -t ext4 /ruta/disc2 /ruta/destí`.
+A continuació es realitza la clonació en cru utilitzant la comanda `dd if=/dev/sdc of=/dev/sdd bs=1M status=progress`, que transfereix la informació bloc a bloc des del disc /dev/sdc cap al /dev/sdd mostrant el progrés de l'operació. 
+Finalment es verifica la integritat de les dades calculant el checksum MD5 d'ambdós discos amb la comanda `md5sum /dev/sdc /dev/sdd` i la coincidència exacta dels valors resultants confirma que la còpia és idèntica.
+A part, s'observa un error d'accés al directori de destí, una conseqüència esperada per haver sobreescrit l'estructura de fitxers del disc /dev/sdd mentre aquest encara estava muntat pel sistema operatiu.
+
 <img width="804" height="509" alt="image" src="https://github.com/user-attachments/assets/bd3bbf24-c22e-44d7-ba48-af2b4fbed83e" />
 
-!!! (4. ) hay que hacer cosas estan en el documento copies.odt
-se tiene que ver como hacemos copies y las restauramos
+### Cron i anacron 
 
-Cron i anacron 
-Son dos eines d'automatitzacio que permeten executar tasques periòdiques
-Diferències
-Cron executa tasques programades en una data i una hora específiques. Si el sistema està apagat la tasca es perd. És ideal per a tasques en dates i hores concretes i per a accions específiques d'un usuari.
+Son dos eines d'automatització que permeten executar tasques periòdiques. Tot i ser similars, tenen unes funcions diferents que les diferencien. Cron executa tasques programades en una data i una hora específiques. Si el sistema està apagat la tasca es perd. És ideal per a tasques en dates i hores concretes i per a accions específiques d'un usuari. D'altra banda, Anacron és ideal per a executar tasques periòdiques on no cal una data i una hora específiques. Normalment s'utilitza per a tasques de manteniment del sistema i no requereix que el sistema estigui obert, quan s'obre el sistema s'executa.
 
-Anacron és ideal per a executar tasques periòdiques on no cal una data i una hora específiques. Normalment s'utilitza per a tasques de manteniment del sistema i no requereix que el sistema estigui obert, quan s'obre el sistema s'executa.
-
-Tot lo que posem dins de /etc/crontab afecta a tots els usuaris.
+Aquesta imatge mostra el fitxer de configuració global del sistema per a l'automatització de tasques, ubicat a /etc/crontabTot lo que posem dins de /etc/crontab afecta a tots els usuaris.
 <img width="862" height="617" alt="image" src="https://github.com/user-attachments/assets/8c3b3101-3119-4456-9f56-f001e355f081" />
 
 Si volem programar una tasca per a un usuari especific
