@@ -1,7 +1,3 @@
----
-layout: default
-title: Título de la página
----
 
 # ⚡ Sprint 1: Instal·lació i Configuració Inicial
 # <h2 style="color: pink;">Este subtítulo es rosa</h2>
