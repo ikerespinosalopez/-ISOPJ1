@@ -1,7 +1,7 @@
 
 # ⚡ Sprint 1: Instal·lació i Configuració Inicial
 
-<h1 style="color: pink;">Este título es rosa</h2>
+<h1 style="color: pink;">Este título es rosa</h1>
 
 <h2 style="color: pink;">Este subtítulo es rosa</h2>
 
