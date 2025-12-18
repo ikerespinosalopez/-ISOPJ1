@@ -374,83 +374,190 @@ A part, s'observa un error d'accés al directori de destí, una conseqüència e
 
 ### Cron i anacron 
 
-Son dos eines d'automatització que permeten executar tasques periòdiques. Tot i ser similars, tenen unes funcions diferents que les diferencien. Cron executa tasques programades en una data i una hora específiques. Si el sistema està apagat la tasca es perd. És ideal per a tasques en dates i hores concretes i per a accions específiques d'un usuari. D'altra banda, Anacron és ideal per a executar tasques periòdiques on no cal una data i una hora específiques. Normalment s'utilitza per a tasques de manteniment del sistema i no requereix que el sistema estigui obert, quan s'obre el sistema s'executa.
+Son dos eines d'automatització que permeten executar tasques periòdiques. Tot i ser similars, tenen unes funcions diferents que les diferencien. Cron executa tasques programades en una data i una hora específiques. Si el sistema està apagat la tasca es perd. És ideal per a tasques en dates i hores concretes i per a accions específiques d'un usuari. 
+D'altra banda, Anacron és ideal per a executar tasques periòdiques on no cal una data i una hora específiques. Normalment s'utilitza per a tasques de manteniment del sistema i no requereix que el sistema estigui obert, quan s'obre el sistema s'executa.
 
-Aquesta imatge mostra el fitxer de configuració global del sistema per a l'automatització de tasques, ubicat a /etc/crontabTot lo que posem dins de /etc/crontab afecta a tots els usuaris.
+Aquesta imatge mostra el fitxer de configuració global del sistema per a l'automatització de tasques, ubicat a `/etc/crontab`. Tot lo que posem dins de `/etc/crontab` afecta a tots els usuaris.
+
 <img width="862" height="617" alt="image" src="https://github.com/user-attachments/assets/8c3b3101-3119-4456-9f56-f001e355f081" />
 
-Si volem programar una tasca per a un usuari especific
+Si volem programar una tasca per a un usuari especific podem fer servir la comanda `crontab -e-u [usuari]` per a accedir al fitxer de configuració i editar-lo com es pot veure a les imatges de sota.
+
 <img width="604" height="270" alt="image" src="https://github.com/user-attachments/assets/a93f9233-22cb-47e1-b9d5-6cd90186b38e" />
+
 <img width="861" height="651" alt="image" src="https://github.com/user-attachments/assets/f41ce5ed-8d96-4930-a8cd-aaa19de9521a" />
 
-Carpetes predefinides de cron. Tot està lligat amb una programació de l'anacron
+Aquí podem veure les carpetes predefinides de cron.`cron.daily, hourly, weekly, monthly, yearly`: Són carpetes. Qualsevol script que fiquis dins d'aquestes carpetes s'executarà automàticament un cop al dia, a l'hora, a la setmana, etc. És molt còmode perquè no cal escriure codi "cron", només moure el fitxer allà.
+
 <img width="607" height="230" alt="image" src="https://github.com/user-attachments/assets/d8175ed6-94cd-45e8-b955-ca3fb5ff4012" />
+
+`anacrontab`: És el fitxer de configuració d'Anacron. Serveix per a ordinadors que no estan encesos les 24 hores. Si una tasca s'havia de fer a les 3 del matí i l'ordinador estava apagat, Anacron s'assegura que s'executi tan bon punt l'engeguis.
+
 <img width="866" height="381" alt="image" src="https://github.com/user-attachments/assets/36a19013-1c19-4c50-baa8-c480804a2b35" />
 
-script per a fer una copia del escriptori i guardarla 
+Aquí podem veure un exemple de script per a automatitzar una còpia de seguretat. 
+* `#!/bin/bash`: Indica al sistema que aquest fitxer s'ha d'executar usant l'intèrpret d'ordres Bash.
+* `TIMESTAMP=$(date + "%Y%m%d_%H%M%S")`: Crea una variable amb la data i hora actual (any, mes, dia, hora, minut i segon). Això serveix perquè cada còpia tingui un nom diferent i no se sobreescriguin.
+* `tar -cvf ...`: Aquesta ordre empaqueta fitxers. Destí: Guarda el fitxer a l'escriptori d'en iker-espinosa amb el nom copies_[data].tar.gz. Origen: Agafa tot el contingut de la carpeta /home/iker-espinosa/Imatges.
+
 <img width="1020" height="213" alt="image" src="https://github.com/user-attachments/assets/27053368-abb6-43e0-9155-9c75ce85c764" />
 
-li donem permisos per a executar i comprovem
+Li donem permisos d'execució i comprovem.
+
 <img width="1081" height="413" alt="image" src="https://github.com/user-attachments/assets/be12da6d-6e3b-40b4-b0c7-f20ae82aee90" />
 
+Creem dos imatges de prova per a fer la còpia de seguretat.
 
-creem dos imatges de prova per a fer la copia de seguretat
 <img width="745" height="179" alt="image" src="https://github.com/user-attachments/assets/548ea2c7-e3bf-4fd6-bb9b-b637eba211b7" />
 
-anem a l'arxiu etc crontab i afegim la següent linia
+Anem a l'arxiu /etc/crontab i afegim la següent linia que serveix per programar l'execució automàtica de l'script de còpies que has preparat anteriorment. Indiquem la horal el minut, el dia, el mes els dies de la setmana, l'usuari que executarà l'ordre i la ruta de l'script.
+
 <img width="1021" height="600" alt="image" src="https://github.com/user-attachments/assets/34f32c86-82ed-4137-b6b1-0b00ba80cef2" />
 
-un cop arribada la hora podem veure com es crea una carpeta a l'escriptori amb els arxius
+Un cop arribada l'hora podem veure com es crea una carpeta a l'escriptori amb els arxius.
+
 <img width="1036" height="900" alt="image" src="https://github.com/user-attachments/assets/075303db-c8e2-465d-97ea-fbff2a48b71b" />
+
+Ara copiem el nostre script a la carpeta de tasques diàries del sistema. D'aquesta manera, el sistema l'executarà un cop al dia de forma indefinida, sense haver de dependre d'una data fixa com el 9 de desembre.
 
 <img width="816" height="118" alt="image" src="https://github.com/user-attachments/assets/5fc46ef8-db19-4f9e-94c8-c77097ff2a04" />
 
-s'executa una vegada al dia i s'espera un minut per a fer-lo des de que s'inicia el sistema operatiu
+S'executa una vegada al dia i s'espera un minut per a fer-lo des de que s'inicia el sistema operatiu.
+
 <img width="872" height="389" alt="image" src="https://github.com/user-attachments/assets/761925b6-183e-48bc-91b5-590c8289a4a7" />
+
 <img width="866" height="693" alt="image" src="https://github.com/user-attachments/assets/574e09d3-95f8-4891-9e81-35111fb680b6" />
-
-++ programar un script
-
-
 
 ---
 
 ## Quotes d'usuari
 
-## dia 15/12 Quotes de disc o usuari
-Es la limitació que es dona als usuaris d'espai de disc
+Les quotes de disc (o quotes d'usuari) són una eina d'administració de sistemes operatius que serveix per limitar la quantitat d'espai de disc o el nombre de fitxers que un usuari o un grup pot crear.
 
-fdisk -l 
+Primer comrovem amb la comanda `fdisk -l` que tenim els nostres discos.
+
 <img width="716" height="324" alt="image" src="https://github.com/user-attachments/assets/f7aefb57-5210-4457-ac59-6148b77f224c" />
 
-installem quota
+Instal·lem  el programa quota per a treballar amb les quotes de disc amb la comanda `apt install quota`.
+
 <img width="878" height="644" alt="image" src="https://github.com/user-attachments/assets/466fb575-b829-4e08-b77c-e38733c8620f" />
 
-creem una carpeta a /mnt/ per a les dades dels usuaris
+A continuació creem una carpeta a /mnt/ per a les dades dels usuaris.
+
 <img width="616" height="143" alt="image" src="https://github.com/user-attachments/assets/6659ce86-5afa-4435-9d9e-2214fc72d81d" />
 
-editem l'arxiu /etc/fstab
+Editem l'arxiu /etc/fstab i li afegim la següent línia:
+* **/dev/sdc1**: És el dispositiu físic (una partició del disc) que vols muntar.
+* **/mnt/dades_usuaris**: És el punt de muntatge, la carpeta on podràs veure els fitxers d'aquest disc.
+* **ext4**: El sistema de fitxers que utilitza aquesta partició.
+* **defaults,usrquota,grpquota**: Aquesta és la part clau:
+* **usrquota**: Activa el suport per a les quotes d'usuari en aquesta partició.
+* **grpquota**: Activa el suport per a les quotes de grup.
+* **0 0**: Són paràmetres tècnics per a les còpies de seguretat (dump) i la verificació de l'estat del disc (fsck) en iniciar.
+  
 <img width="873" height="457" alt="image" src="https://github.com/user-attachments/assets/3ac86c3e-3550-458d-83d5-877b19638252" />
 
-dos maneres de veure que el muntatge està bé
+Podem comprovar de les següents dos maneres que el muntatge està bé:
+
 <img width="807" height="388" alt="image" src="https://github.com/user-attachments/assets/f87db7ef-7323-4039-9702-622ac8b8e45c" />
 
 <img width="811" height="105" alt="image" src="https://github.com/user-attachments/assets/17dbd9cf-bb56-4511-9b50-7f42e271a079" />
 
+1. **L'ordre `quotaoff /mnt/dades_usuaris`**
+
+   **Què fa:**  
+   Desactiva temporalment el control de quotes en el punt de muntatge especificat.
+
+   **Per què s'usa:**  
+   Normalment es fa abans de fer canvis importants o per “reiniciar” el comptador de quotes si s'han detectat errors o s'ha modificat la configuració manualment.
+
+2. **L'ordre `quotaon /mnt/dades_usuaris`**
+
+   **Què fa:**  
+   Activa oficialment la vigilància de quotes d'usuari (`usrquota`) i de grup (`grpquota`) en aquesta partició.
+
+   **Resultat:**  
+   A partir d'aquest moment, el nucli del sistema Linux començarà a comptabilitzar quant d'espai gasta cada usuari dins de `/mnt/dades_usuaris` i aplicarà els límits que defineixis.
+
 <img width="798" height="44" alt="image" src="https://github.com/user-attachments/assets/138dfc49-3f77-42a3-8630-8b47918cce0a" />
+
+En aquesta imatge estem comprovant l'estat de les quotes que haviem activat prèviament per veure si s'estan aplicant correctament.
+
+Aquí tenim l'explicació de les dues ordres que hem executat:
+
+1. **Comprovació d'un usuari específic (`quota -u prova`)**
+
+   **Ordre:**  
+   `quota -u prova`
+
+   **Què fa:**  
+   Cerca si l'usuari anomenat *prova* té alguna restricció d'espai configurada.
+
+   **Resultat:**  
+   El sistema respon `none` (cap), la qual cosa significa que aquest usuari encara té permís per fer servir tot el disc sense límits.
+
+2. **Informe resum del dispositiu (`repquota /dev/sdc1`)**
+
+   **Ordre:**  
+   `repquota /dev/sdc1`
+
+   **Què fa:**  
+   Genera un informe detallat de tots els usuaris que tenen fitxers dins de la partició `/dev/sdc1` (que és la que vam configurar a `/etc/fstab`).
+
+   **Dades que ens dóna l'informe:**
+
+   - **Temps de gràcia (Grace time):**  
+     Està configurat en 7 dies tant per a l'espai (Blocks) com per al nombre de fitxers (Inodes). Aquest és el temps que tindria un usuari per esborrar dades si superés el seu *límit tou*.
+
+   - **Estat de l'usuari `root`:**
+     - **Block limits (Espai):**  
+       Està utilitzant 20 unitats d'espai, però els límits *soft* (tou) i *hard* (dur) estan a 0, que vol dir “sense límit”.
+     - **File limits (Fitxers):**  
+       Té creats 2 fitxers, també sense cap límit definit.
 
 <img width="788" height="282" alt="image" src="https://github.com/user-attachments/assets/cd6fc588-2797-4453-9d35-8ee8d357f865" />
 
-es pot configurar per blocs o per inode, soft vol dir que l'usuari té un limit d'un mega, i es pot sobrepassar fins a arribar al hard, que no es pot sobrepassar mai. 
+En aquesta última imatge estem veient el moment precís en què assignem els límits reals de disc a l'usuari **prova** mitjançant l'editor de text.
+
+Aquestes són les dades clau que hem configurat:
+
+**Usuari i partició:**  
+Estem editant les quotes de l'usuari *prova* (amb el codi d'identificació 3003) dins del disc o partició `/dev/sdc1`.
+
+**Límits d'espai (Blocks):**
+
+- **Ús actual:**  
+  L'usuari encara no ha gastat res (0 blocks).
+
+- **Límit tou (soft):**  
+  Fixat en 1024, que equival aproximadament a 1 MB. Si l'usuari supera aquesta xifra, el sistema començarà a mostrar avisos.
+
+- **Límit dur (hard):**  
+  Fixat en 2048, aproximadament 2 MB. Aquest és el límit absolut; el sistema bloquejarà qualsevol escriptura que intenti superar-lo.
+
+**Límits de fitxers (Inodes):**
+
+- **Ús actual:**  
+  L'usuari té 0 fitxers creats.
+
+- **Configuració:**  
+  Els límits *soft* i *hard* estan a 0, cosa que indica que no hi ha restricció en el nombre de fitxers que pot crear, sempre que no superi el límit total de 2 MB d'espai total.
+
 <img width="867" height="318" alt="image" src="https://github.com/user-attachments/assets/417c71dd-2229-49bb-aa38-7576f36e7d40" />
 
-li donem permisos
+Finalment, hem obert completament els permisos del directori amb `chmod 777` per permetre que qualsevol usuari, especialment *prova*, hi pugui escriure lliurement i així verificar que el sistema bloqueja l’escriptura quan se supera el límit dur de 2 MB.
+
 <img width="761" height="289" alt="image" src="https://github.com/user-attachments/assets/537b6d4d-447f-4b95-a49d-1deb1bc89b86" />
 
-accedim amb un altre usuari
+Accedim amb l'usuari prova i creem un arxiu de 800MB.
+
 <img width="863" height="268" alt="image" src="https://github.com/user-attachments/assets/277ff21c-febb-4d04-9e3f-d789d4f15d9a" />
 
+Repetim i comprovem que hem ocupat els 1600MB.
+
 <img width="847" height="566" alt="image" src="https://github.com/user-attachments/assets/7bb2818a-9ddc-4ac5-9f8d-c949c2b6b7fb" />
+
+Ara creem un altre i podem veure com ens diu que hem excedit la quota, però es guarda l'arxiu incomplet.
 
 <img width="860" height="377" alt="image" src="https://github.com/user-attachments/assets/37739453-1b96-4109-b152-7686e06e4359" />
 
