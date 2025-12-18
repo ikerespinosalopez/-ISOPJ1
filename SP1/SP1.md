@@ -1,7 +1,10 @@
 
 # ⚡ Sprint 1: Instal·lació i Configuració Inicial
 
+<h1 style="color: pink;">Este título es rosa</h2>
+
 <h2 style="color: pink;">Este subtítulo es rosa</h2>
+
 # <span style="color: #ff69b4;">Mi Título Rosa</span>
 
 ## Virtualització i instal·lació del SO Ubuntu
