@@ -107,6 +107,35 @@ El Sistema Operatiu Linux ofereix dues maneres principals de muntar particions, 
 ## ⚙️ Gestió de processos
 Un **procés** es defineix com la instància dinàmica resultant d'executar un codi o programa. És l'element bàsic de treball que el sistema operatiu ha de gestionar, planificar i monitoritzar constantment per garantir el funcionament fluid del sistema.
 
+
+Amb la comanda `pstree -p -h [usuari]`podem filtrar els processos per usuari:
+
+<img width="926" height="948" alt="image" src="https://github.com/user-attachments/assets/b2836d1d-26b5-4cdf-801e-98509d05685c" />
+
+Filtrem per a trobar els processos del terminal
+
+<img width="928" height="292" alt="image" src="https://github.com/user-attachments/assets/75535bcc-c283-4550-8cf9-272fc58470a3" />
+
+`ps aux` explicar cada columna
+<img width="960" height="906" alt="image" src="https://github.com/user-attachments/assets/e4248d33-e963-400b-8a36-d212e4056f38" />
+
+`ps aux` filtrado para ver el gnome-terminal de alumnat
+<img width="946" height="198" alt="image" src="https://github.com/user-attachments/assets/cccda48b-7572-46c9-972c-20dd960a7225" />
+
+Ara amb la comanda `kill -9 [PID]` podem "matar" a un procès
+
+Entrem a top, Cntrl c matem, control z aturem i amb jobs podem veure els aturats, si volem tornar a executar-lo es `fg %[n.job]`
+- buscar captura
+
+`top &` el ampersand es per a executar processos en segon pla
+<img width="596" height="134" alt="image" src="https://github.com/user-attachments/assets/a1976015-2d8c-40ed-83e6-02d0e436e297" />
+
+renice per a modificar prioritat de processos que ja estan en start y nice llençar processos en una prioritat determinada.
+
+<img width="944" height="697" alt="image" src="https://github.com/user-attachments/assets/91273615-bb81-4bc1-b106-e8404d5d11e4" />
+
+<img width="934" height="416" alt="image" src="https://github.com/user-attachments/assets/38f8256c-ad8a-4c06-94e3-606becb4c5da" />
+
 ***
 
 Per a la seva gestió eficient, el Sistema Operatiu (SO) atorga a cada procés dues identificacions crucials:
@@ -132,7 +161,6 @@ Per interactuar amb aquests processos des de la línia de comandes, disposem d'u
 
 Aquests conceptes són la base per a una administració eficaç del sistema.
 
-
 ## 🔑 Gestió d'usuaris i grups i permisos
 La **gestió d'usuaris, grups i permisos** és l'estructura fonamental que garanteix la seguretat i el control d'accés en els sistemes de tipus Linux. Aquest sistema defineix qui pot interactuar amb els recursos i de quina manera.
 
@@ -146,7 +174,9 @@ La podem instal·lar amb la comanda `sudo apt install gnome-system-tools`, i un 
 <img width="806" height="457" alt="image" src="https://github.com/user-attachments/assets/38ab2536-8683-4ffd-90b1-9090856667a6" />
 
 ### Fitxers implicats
+
 A continuació veurem una sèrie de fitxers que tenen una alta importància a l'hora de gestionar els usuaris, grups i permisos. 
+
 * Comencem amb el fitxer **/etc/passwd**, que conté tots els usuaris del sistema. Veiem a la imatge que tenim seleccionat el nostre usuari i se'ns indiquen una sèrie de paràmetres, en ordre: nom d'usuari > contrasenya > UID > GID > GECOS > Directori personal > Intèrpret d'ordres:
 
 <img width="918" height="810" alt="image" src="https://github.com/user-attachments/assets/acd4b78c-2ada-4740-90dd-0a7ba15a9f4f" />
@@ -175,7 +205,6 @@ Primer tenim la comanda `adduser [usuari]`, que crea un nou compte d'usuari de m
 En un principi no les veurem, però si iniciem sessió amb l'usuari nou podrem veure que ens apareixen les seves carpetes:
 
 <img width="920" height="343" alt="image" src="https://github.com/user-attachments/assets/b7e64456-d5c8-41f7-b67c-bc0d1ff674a9" />
-
 
 També tenim la comanda `useradd [usuari]`. Afegeix un nou compte d'usuari, creant la seva entrada a **/etc/passwd** i el seu directori personal. Amb la comanda `passwd [usuari]` establim la seva contrasenya:
 
@@ -316,7 +345,6 @@ En l'arxiu `/etc/default/useradd` podem modificar paràmetres de la comanda `use
 Fem les comprovacions adients per veure els canvis:
 
 <img width="856" height="217" alt="image" src="https://github.com/user-attachments/assets/a79fb683-72e8-4167-8c86-a756c25cc8d8" />
-
 
 A l'arxiu /etc/skel/.profile podem canviar el lloc on estem a l'executar la comanda pwd:
 
@@ -561,14 +589,13 @@ Ara creem un altre i podem veure com ens diu que hem excedit la quota, però es 
 
 <img width="860" height="377" alt="image" src="https://github.com/user-attachments/assets/37739453-1b96-4109-b152-7686e06e4359" />
 
-<img width="855" height="431" alt="image" src="https://github.com/user-attachments/assets/6dee7bcf-bdb3-4609-b83f-c7bceed670fd" />
+Dins d'aquest arxiu podem modificar el periode de gracia, afecta a tot el disc i a tots els usuaris. Per accedir hem d'executar la comanda `edquota -t`.
 
-modificar periode de gracia, afecta a toto el disc i tots els usuaris
 <img width="867" height="219" alt="image" src="https://github.com/user-attachments/assets/89ed2fca-cb51-49fa-8423-eb27baa8610f" />
 
-si volem que només afecti a un usuari ho podem fer de la següent manera
-<img width="865" height="328" alt="image" src="https://github.com/user-attachments/assets/bf08c4ec-e09e-41d7-b57f-0f30984f024d" />
+Si volem que només afecti a un usuari ho podem fer de la següent manera, amb la comanda `setquota -T`.
 
+<img width="865" height="328" alt="image" src="https://github.com/user-attachments/assets/bf08c4ec-e09e-41d7-b57f-0f30984f024d" />
 
 ---
 
@@ -683,39 +710,3 @@ Per a fer-ho definitiu per a tots els usuaris modifiquem aquest arxiu **/etc/log
 Comprovem els canvis:
 
 <img width="658" height="275" alt="image" src="https://github.com/user-attachments/assets/f142de3b-ec7a-4fea-959e-30d63b087078" />
-
-
-
-## dia 2/12 Gestió de processos
-CHECKLIST: Provar Ps tree, top, htop, btop, ps aux, kill -9 PID, diferència entre ctrl c, cntrl z, comanda jobs, comanda fg per a tornar a primer pla, renice, nice, 
-
-Amb la comanda `pstree -p -h [usuari]`podem filtrar els processos per usuari:
-
-<img width="926" height="948" alt="image" src="https://github.com/user-attachments/assets/b2836d1d-26b5-4cdf-801e-98509d05685c" />
-
-Filtrem per a trobar els processos del terminal
-
-<img width="928" height="292" alt="image" src="https://github.com/user-attachments/assets/75535bcc-c283-4550-8cf9-272fc58470a3" />
-
-`ps aux` explicar cada columna
-<img width="960" height="906" alt="image" src="https://github.com/user-attachments/assets/e4248d33-e963-400b-8a36-d212e4056f38" />
-
-`ps aux` filtrado para ver el gnome-terminal de alumnat
-<img width="946" height="198" alt="image" src="https://github.com/user-attachments/assets/cccda48b-7572-46c9-972c-20dd960a7225" />
-
-Ara amb la comanda `kill -9 [PID]` podem "matar" a un procès
-
-Entrem a top, Cntrl c matem, control z aturem i amb jobs podem veure els aturats, si volem tornar a executar-lo es `fg %[n.job]`
-- buscar captura
-
-`top &` el ampersand es per a executar processos en segon pla
-<img width="596" height="134" alt="image" src="https://github.com/user-attachments/assets/a1976015-2d8c-40ed-83e6-02d0e436e297" />
-
-renice per a modificar prioritat de processos que ja estan en start y nice llençar processos en una prioritat determinada.
-
-<img width="944" height="697" alt="image" src="https://github.com/user-attachments/assets/91273615-bb81-4bc1-b106-e8404d5d11e4" />
-<img width="934" height="416" alt="image" src="https://github.com/user-attachments/assets/38f8256c-ad8a-4c06-94e3-606becb4c5da" />
-
-
-
-
