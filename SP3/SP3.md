@@ -113,6 +113,8 @@ Comprovem que funciona
 
 Captura per comprovar que hem pogut iniciar sessió amb alu1
 
+<img width="599" height="367" alt="image" src="https://github.com/user-attachments/assets/c0d8ca8d-b26e-420d-b3fa-bfb8a93bfe59" />
+
 
 
 
