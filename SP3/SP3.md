@@ -109,9 +109,10 @@ Per a iniciar sessió gràficament modifiquem l'arxiu ------
 <img width="761" height="113" alt="image" src="https://github.com/user-attachments/assets/e4b7a9b4-c576-48dc-9c64-9979237481b3" />
 
 Comprovem que funciona
+
 <img width="728" height="112" alt="image" src="https://github.com/user-attachments/assets/e8ebcc61-a10b-495e-8fa1-ce920d952d15" />
 
-Captura per comprovar que hem pogut iniciar sessió amb alu1
+Iniciem sessió amb l'usuari que tenim i comprovem que funcioni correctament.
 
 <img width="599" height="367" alt="image" src="https://github.com/user-attachments/assets/c0d8ca8d-b26e-420d-b3fa-bfb8a93bfe59" />
 
