@@ -26,19 +26,31 @@ Descomprimim els arxius que ens hem descarregat abans.
 
 <img width="722" height="263" alt="image" src="https://github.com/user-attachments/assets/edd57613-7f25-40e4-8752-7e1fce34ebce" />
 
-Ara amb la segúent comanda anem a tornar a configurar slapd.
+Ara amb la comandadpkg-reconfigure slapd anem a tornar a configurar slapd.
 
 <img width="770" height="28" alt="image" src="https://github.com/user-attachments/assets/48ca01c9-447a-49ab-bd9e-3709f0e55884" />
 
+Se'ns obrirà una finestra per a configurar el paquet, hem de seleccionar NO per a continuar amb la configuració.
+
 <img width="822" height="289" alt="image" src="https://github.com/user-attachments/assets/92991b10-c69f-47cc-8a96-f37ffadd2896" />
+
+En la següent finestra hem d'escriure el nom del domini que hem creat abans, en aquest cas iso.cat.
 
 <img width="855" height="315" alt="image" src="https://github.com/user-attachments/assets/3cd4cf48-2d41-47cb-9564-0d6b23054099" />
 
+A continuació escriurem el nom de l'organització que desitjem.
+
 <img width="854" height="299" alt="image" src="https://github.com/user-attachments/assets/da340a68-e04c-4843-8fc2-776e3c464adc" />
+
+I ens demanarà una contrasenya per a l'usuari administrador.
 
 <img width="837" height="304" alt="image" src="https://github.com/user-attachments/assets/66d9a04b-b51d-43e2-9f3b-4b081b974faa" />
 
+Ara seleccionem que no volem eliminar la base de dades i continuem.
+
 <img width="756" height="262" alt="image" src="https://github.com/user-attachments/assets/6e5d24c0-ffaf-4c13-b9fb-a817e49dea25" />
+
+Seleccionem que volem moure la base de dades anterior i finalitzem el procès de configuració.
 
 <img width="854" height="307" alt="image" src="https://github.com/user-attachments/assets/d553c462-6ef1-401a-bc52-389a6fc608ca" />
 
@@ -58,36 +70,52 @@ I tornem a repetir amb l'arxiu usu.ldif.
 
 <img width="587" height="470" alt="image" src="https://github.com/user-attachments/assets/fa5fe846-a2d9-4bcc-a35f-bb5da502662b" />
 
-(explicar les lletres de la comnanda)
-Amb aquesta comanda afegim els objectes que hem creat. Repetim el procès amb els tres arixus.
+Amb la comanda `ldapadd -c -x -D "cn=admin,dc=iso,dc=cat" -W -f [nom_de_arxiu]` afegim els objectes que hem creat. Repetim el procès amb els tres arixus. Els paràmetres fan lo següent: -c per a que no s'aturi en cas d'error, -x fa servir l'autenticació simple, -D indica l'usuari que fa l'acció, -W et demana la contrasenya de forma segura per pantalla i -f indica el fitxer que volem carregar.
 
 <img width="863" height="326" alt="image" src="https://github.com/user-attachments/assets/832430e8-b7d3-4dd8-b6be-2fdc9c2155d6" />
 
-Ara anem al client, comprovem que tenim connexió amb el servidor i instal·lem els tres paquets següents.
+Ara anem al client, comprovem que tenim connexió amb el servidor i instal·lem els tres paquets següents:
 
 <img width="870" height="29" alt="image" src="https://github.com/user-attachments/assets/6b614ac7-8b1c-4cb8-901b-3478652d5d2a" />
 
-<img width="858" height="385" alt="image" src="https://github.com/user-attachments/assets/e7587d46-f689-44ba-947d-2138916ce550" />
+Primer hem de configurar l'adreça IP del servidor al qual ens volem connectar, és important esborrar la i de "ldapi" i una de les tres /// que ens apareixen per defecte.
 
 <img width="858" height="385" alt="image" src="https://github.com/user-attachments/assets/dc0214bd-499f-4278-b74f-6f5a56165cfe" />
 
+A continuació configurem el nom del domini que hem establert abans.
+
 <img width="856" height="340" alt="image" src="https://github.com/user-attachments/assets/e6073ef9-8f13-4259-9f2c-f467f73006b6" />
+
+Seleccionem la versió que volem utilitzar.
 
 <img width="853" height="338" alt="image" src="https://github.com/user-attachments/assets/43dfd452-7420-48e8-87ab-dd1ed3a27a87" />
 
+Escollim que sí.
+
 <img width="860" height="402" alt="image" src="https://github.com/user-attachments/assets/c628ff1e-1720-4ab7-8050-1f19594d8e5b" />
+
+Seleccionem que si per a que ens demani l'usuari i contrasneya per a accedir.
 
 <img width="848" height="321" alt="image" src="https://github.com/user-attachments/assets/b5325f67-b442-46f5-8aab-24188fcd6da4" />
 
+Establim el compte que volem fer servir amb privilegis d'administrador.
+
 <img width="667" height="363" alt="image" src="https://github.com/user-attachments/assets/1d54b8f9-0851-4780-9a45-d355cabecbb2" />
+
+Escollim la contrasenya.
 
 <img width="855" height="413" alt="image" src="https://github.com/user-attachments/assets/e23c3d30-501a-486e-a572-7fab18fb9c5a" />
 
+Ara seleccionem l'usuari que volem fer servir sense privilegis.
+
 <img width="856" height="358" alt="image" src="https://github.com/user-attachments/assets/54256f8e-a588-4bee-a60f-fcd215834363" />
+
+I l'establim una altra contrasenya per a finalitzar el procès.
 
 <img width="842" height="288" alt="image" src="https://github.com/user-attachments/assets/2c25fc5a-98a3-422e-bbb8-955f4e80ca87" />
 
-dpkf-reconfuigu
+Executem la comanda `dpkf-reconfigure ldap-auth-config` per a repetir el procès i confirmem tot els passos per a veure un de nou a final que ens pregunta com volem encriptar la contrasenya.
+
 <img width="803" height="20" alt="image" src="https://github.com/user-attachments/assets/6cd8bd58-7c1b-4603-8ffa-25f187f52416" />
 
 <img width="834" height="701" alt="image" src="https://github.com/user-attachments/assets/5545f453-1e6f-4ee6-bbf8-450c1c3d03b1" />
@@ -96,19 +124,19 @@ Modifiquem l'arxiu nsswitch.conf per a que el sistema busqui primer al ldap.
 
 <img width="715" height="509" alt="image" src="https://github.com/user-attachments/assets/9a5fc62b-a356-45ec-a05f-a8f73c7e95ce" />
 
-A continuació modifiquem l'arxiu /etc/pam.d/common-session
+A continuació modifiquem l'arxiu /etc/pam.d/common-session.
 
 <img width="837" height="756" alt="image" src="https://github.com/user-attachments/assets/102e4428-3a6f-4c24-b71f-36985434044c" />
 
-Ara modifiquem l'arxiu /etc/pam.d/common-password i eliminem la part de authtok
+Ara modifiquem l'arxiu /etc/pam.d/common-password i eliminem la part de authtok.
 
 <img width="871" height="735" alt="image" src="https://github.com/user-attachments/assets/0bcee416-922b-4408-8ea3-0e8725682cef" />
 
-Per a iniciar sessió gràficament modifiquem l'arxiu ------
+Per a iniciar sessió gràficament modifiquem l'arxiu /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf.
 
 <img width="761" height="113" alt="image" src="https://github.com/user-attachments/assets/e4b7a9b4-c576-48dc-9c64-9979237481b3" />
 
-Comprovem que funciona
+Comprovem que funciona.
 
 <img width="728" height="112" alt="image" src="https://github.com/user-attachments/assets/e8ebcc61-a10b-495e-8fa1-ce920d952d15" />
 
