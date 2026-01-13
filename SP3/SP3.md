@@ -144,6 +144,11 @@ Iniciem sessió amb l'usuari que tenim i comprovem que funcioni correctament.
 
 <img width="599" height="367" alt="image" src="https://github.com/user-attachments/assets/c0d8ca8d-b26e-420d-b3fa-bfb8a93bfe59" />
 
+## Instal·lació de Apache Directory Studio
+ 
 
 
+- Crear UO
+- Crear usuari
+- Client accedir amb l'usuari creat
 
