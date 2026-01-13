@@ -145,7 +145,90 @@ Iniciem sessió amb l'usuari que tenim i comprovem que funcioni correctament.
 <img width="599" height="367" alt="image" src="https://github.com/user-attachments/assets/c0d8ca8d-b26e-420d-b3fa-bfb8a93bfe59" />
 
 ## Instal·lació de Apache Directory Studio
- 
+El primer pas abans d'instal·lar el paquet serà actualiztar els repositoris, un cop fet haurem d'instal·lar Java, ja que és necessari per a fer servir ADS.
+
+Per fer-ho utilitzarem la següent comanda:
+
+<img width="700" height="25" alt="image" src="https://github.com/user-attachments/assets/365e6c17-4b2d-4c63-9b46-73306110be80" />
+
+Podem comprovar si 'sha instal·lat correctament amb la comanda `java -version`
+
+<img width="517" height="25" alt="image" src="https://github.com/user-attachments/assets/d1e4771c-ccf4-4488-b192-720eb5cdccdc" />
+
+Un cop instal·lat haurem de baixar-nos l'ADS des de la seva pàgina oficial, on trobarem un arxiu .gz. El descomprimim i el copiem a /opt.
+
+I donem permisos al nostre usuari amb aquesta comanda:
+
+<img width="881" height="23" alt="image" src="https://github.com/user-attachments/assets/9b6b9596-d2e1-4610-b229-a2e0f8abd836" />
+
+Trobem la ruta de java amb la comanda `readlink -f $(which java)` i editem l'arxiu Apachedirectoryestudio.ini i introduim aquestes línies:
+
+<img width="868" height="613" alt="image" src="https://github.com/user-attachments/assets/feab7a29-a9b7-48fb-8ff8-f506beb02579" />
+
+Un cop fet creem un arxiu .desktop anomenat apachedirectorystudio i afegim dins aquest contingut:
+
+<img width="771" height="280" alt="image" src="https://github.com/user-attachments/assets/2cf36dd0-9f43-4a51-b08f-eae9f2348f08" />
+
+Guardem els canvis i ara ja podrem obrir ADS:
+
+<img width="892" height="181" alt="image" src="https://github.com/user-attachments/assets/ffc4d9d3-f3a6-4cb7-982c-8b4085b37d47" />
+
+Un cop dins haurem d'obrir el panel de Connections i establir una nova connexió amb el server on haurem d'indicar la IP, el nom del domini i la password. Un cop fet se'ns obrirà el panell del nostre servidor LDAP:
+
+<img width="221" height="320" alt="image" src="https://github.com/user-attachments/assets/cf7007d1-6ee2-4588-90ee-7fa8ecb999e9" />
+
+Ara anem a crear una UO. Fem click dret al domini i seleccionem una nova entrada:
+
+<img width="792" height="698" alt="image" src="https://github.com/user-attachments/assets/4639655f-fa24-467a-b601-f4d3027f05fb" />
+
+Escollim Create entry from scratch:
+
+<img width="605" height="233" alt="image" src="https://github.com/user-attachments/assets/adab951e-921e-443c-a781-17f4dbd6f79f" />
+
+Escollim l'objecte UO:
+
+<img width="611" height="475" alt="image" src="https://github.com/user-attachments/assets/54d0f431-10d4-49fd-89d8-9f13c5e2510e" />
+
+I a l'apartat RDN escrivim ou=[nom_OU].
+
+<img width="612" height="275" alt="image" src="https://github.com/user-attachments/assets/92a10f0f-19b3-43fa-baed-84e78869ccab" />
+
+I podem veure com s'ha creat la UO:
+
+<img width="223" height="380" alt="image" src="https://github.com/user-attachments/assets/6be24928-bbd2-4ca0-b5d5-5d01d22a79f2" />
+
+Per a crear l'usuari repetim el procès però des de la nova UO i seleccionant el tipus d'objecte inetOrgPerson:
+
+<img width="615" height="512" alt="image" src="https://github.com/user-attachments/assets/f3d202ed-56e6-4bdb-8989-24770280b6a6" />
+
+A RDN escrivim uid=[nom_usuari] i a continuació escrivim els atributs com el cognom:
+
+<img width="610" height="397" alt="image" src="https://github.com/user-attachments/assets/9df7ba76-00b6-489a-bd23-0fb7db1ec065" />
+
+Aprofitem per a afegir una contrasenya, fem clic dret i escollim New Attribute, escollim el tipus userPassword:
+
+<img width="606" height="429" alt="image" src="https://github.com/user-attachments/assets/c8928715-0cf7-4e56-a42e-6e9a6905cc24" />
+
+S'obrirà una finestra per a introduir la contrasenya de manera segura.
+
+<img width="768" height="405" alt="image" src="https://github.com/user-attachments/assets/3ef8d8f2-6ddc-4eac-af10-43176af9aaff" />
+
+I ja tenim l'usuari dins la OU:
+
+<img width="219" height="405" alt="image" src="https://github.com/user-attachments/assets/e673f8b5-66a0-4e39-bafc-700a7e1879bb" />
+
+Ara hem de comprovar que sigui accessible des del client.
+
+
+
+
+
+
+
+
+
+
+
 
 
 - Crear UO
