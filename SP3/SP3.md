@@ -235,3 +235,5 @@ Ara hem de comprovar que sigui accessible des del client.
 - Crear usuari
 - Client accedir amb l'usuari creat
 
+
+dades pt10 fer lo del paper 
