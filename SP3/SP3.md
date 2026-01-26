@@ -221,13 +221,13 @@ Ara hem de comprovar que sigui accessible des del client.
 
 
 
-
+!!!
 - Crear UO
 - Crear usuari
 - Client accedir amb l'usuari creat
 
 
-dades pt10 fer lo del paper 
+!!! dades pt10 fer lo del paper 
 
 ## Servidor SAMBA
 Un servidor samba serveix per a compartir fitxers, impresores, carpetes a travès d'una autenticació a nivell usuari, ja sigui de SAMBA o de LDAP. Funciona tant en WIndows com en Ubuntu.
@@ -243,7 +243,7 @@ Anem al directori arrel, creem la carpeta proves i li donem permisos. Li canviem
 
 <img width="637" height="112" alt="image" src="https://github.com/user-attachments/assets/ef20407d-4eb9-4250-a3cc-a45065bb8f67" />
 
-Creem els usuaris per a samba amb la comanda useradd, no son vàlids per al sistema. Els afegim a un nou grup que hem creat i comprovem que s'hagin fet correctament.
+Creem els usuaris per a Samba amb la comanda useradd, no son vàlids per al sistema. Els afegim a un nou grup que hem creat i comprovem que s'hagin fet correctament.
 
 <img width="716" height="397" alt="image" src="https://github.com/user-attachments/assets/20bf0e2f-bd8c-41bf-a397-30e962fd2e16" />
 
@@ -276,6 +276,16 @@ Ara modifiquem la configuració editant l'arxiu /etc/samba/smb.conf i afegim una
 
 ### Client
 
+Instal·lem Samba amb la versió de client amb la comanda `apt install smbclient`:
+
+<img width="666" height="26" alt="image" src="https://github.com/user-attachments/assets/8a29cfa0-6e83-4716-b64d-66b7cb268489" />
+
+Anem als nostres arxius, seleccionem *Altres ubicacions* i a sota ens connectem al servidor escrivint smb://[IP_server]/carpeta.
+
+<img width="720" height="546" alt="image" src="https://github.com/user-attachments/assets/3ec2fcac-11ea-49c9-bdbb-0e1b0c419661" />
+
+
+!!! Accedir a la carpeta proves a travès de l'autenticacio d'usuaris ldap. alu1
 
 
 ## Servidor NFS
