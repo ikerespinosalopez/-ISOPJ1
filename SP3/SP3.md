@@ -222,18 +222,63 @@ Ara hem de comprovar que sigui accessible des del client.
 
 
 
-
-
-
-
-
-
-
-
-
 - Crear UO
 - Crear usuari
 - Client accedir amb l'usuari creat
 
 
 dades pt10 fer lo del paper 
+
+## Servidor SAMBA
+Un servidor samba serveix per a compartir fitxers, impresores, carpetes a travès d'una autenticació a nivell usuari, ja sigui de SAMBA o de LDAP. Funciona tant en WIndows com en Ubuntu.
+
+### Server
+Instal·lem SAMBA al servidor amb la comanda `apt install samba`:
+
+<img width="576" height="32" alt="image" src="https://github.com/user-attachments/assets/592caf50-3ae9-49c1-9410-f0aa359188cd" />
+
+Anem al directori arrel, creem la carpeta proves i li donem permisos. Li canviem el grup, creem un arxiu dins i comprovem que els permisos són correctes.
+
+<img width="683" height="376" alt="image" src="https://github.com/user-attachments/assets/06b56742-c3c6-4992-814a-addbb2dca97a" />
+
+<img width="637" height="112" alt="image" src="https://github.com/user-attachments/assets/ef20407d-4eb9-4250-a3cc-a45065bb8f67" />
+
+Creem els usuaris per a samba amb la comanda useradd, no son vàlids per al sistema. Els afegim a un nou grup que hem creat i comprovem que s'hagin fet correctament.
+
+<img width="716" height="397" alt="image" src="https://github.com/user-attachments/assets/20bf0e2f-bd8c-41bf-a397-30e962fd2e16" />
+
+Ara li assignem una contrasenya a cada usuari que hem creat abans.
+
+<img width="510" height="265" alt="image" src="https://github.com/user-attachments/assets/a7b2a82c-cc91-41f0-a324-1c569b087ad6" />
+
+Ara modifiquem la configuració editant l'arxiu /etc/samba/smb.conf i afegim una sèrie de línies.
+
+#### Explicació dels paràmetres
+
+| Paràmetre | Valor | Descripció |
+| :--- | :--- | :--- |
+| **`[proves]`** | - | **Nom del recurs**. Aquest és el nom visible a la xarxa (ex: `\\servidor\proves`). |
+| **`path`** | `/proves` | **Ruta del sistema**. Indica el directori físic al servidor on s'emmagatzemen realment les dades. |
+| **`guest ok`** | `yes` | **Convidats**. Permet l'accés sense autenticació (encara que pot ser limitat per altres regles). |
+| **`directory mask`** | `0755` | **Permís carpetes**. Les carpetes noves es creen amb permisos `755`: Propietari (RWX), Grup (RX), Altres (RX). |
+| **`create mask`** | `0644` | **Permís fitxers**. Els fitxers nous es creen amb permisos `644`: Propietari (RW), Grup (R), Altres (R). |
+| **`browseable`** | `yes` | **Visibilitat**. La carpeta apareix llistada quan s'explora el servidor per la xarxa. |
+| **`read list`** | `blau, @color` | **Llista de lectura**. Defineix qui pot llegir:<br>• `blau`: L'usuari "blau".<br>• `@color`: El grup d'usuaris "color" (l'arrova indica grup). |
+| **`write list`** | `blau` | **Llista d'escriptura**. Defineix qui pot modificar/esborrar:<br>• Només l'usuari `blau` té permisos d'escriptura explícits. |
+| **`invalid users`** | `roig` | **Bloquejat**. L'usuari `roig` té l'accés denegat explícitament. |
+
+<img width="884" height="746" alt="image" src="https://github.com/user-attachments/assets/8c5ee0b3-9807-45f5-807b-aa062bfe49f4" />
+
+És important desprès de fer els canvis reiniciar els serveis smbd nmbd.
+
+<img width="552" height="45" alt="image" src="https://github.com/user-attachments/assets/afaf139c-b162-42e9-88bc-bfd3c27ba527" />
+
+
+### Client
+
+
+
+## Servidor NFS
+
+
+
