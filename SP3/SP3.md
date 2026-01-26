@@ -229,11 +229,11 @@ Ara hem de comprovar que sigui accessible des del client.
 
 !!! dades pt10 fer lo del paper 
 
-## Servidor SAMBA
-Un servidor samba serveix per a compartir fitxers, impresores, carpetes a travès d'una autenticació a nivell usuari, ja sigui de SAMBA o de LDAP. Funciona tant en WIndows com en Ubuntu.
+## Servidor Samba
+Un servidor Samba serveix per a compartir fitxers, impresores, carpetes a travès d'una autenticació a nivell usuari, ja sigui de Samba o de LDAP. Funciona tant en WIndows com en Ubuntu.
 
 ### Server
-Instal·lem SAMBA al servidor amb la comanda `apt install samba`:
+Instal·lem Samba al servidor amb la comanda `apt install samba`:
 
 <img width="576" height="32" alt="image" src="https://github.com/user-attachments/assets/592caf50-3ae9-49c1-9410-f0aa359188cd" />
 
@@ -251,7 +251,7 @@ Ara li assignem una contrasenya a cada usuari que hem creat abans.
 
 <img width="510" height="265" alt="image" src="https://github.com/user-attachments/assets/a7b2a82c-cc91-41f0-a324-1c569b087ad6" />
 
-Ara modifiquem la configuració editant l'arxiu /etc/samba/smb.conf i afegim una sèrie de línies.
+Ara modifiquem la configuració editant l'arxiu /etc/Samba/smb.conf i afegim una sèrie de línies.
 
 #### Explicació dels paràmetres
 
