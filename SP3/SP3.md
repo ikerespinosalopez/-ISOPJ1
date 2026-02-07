@@ -217,17 +217,6 @@ I ja tenim l'usuari dins la OU:
 
 <img width="219" height="405" alt="image" src="https://github.com/user-attachments/assets/e673f8b5-66a0-4e39-bafc-700a7e1879bb" />
 
-Ara hem de comprovar que sigui accessible des del client.
-
-
-
-!!!
-- Crear UO
-- Crear usuari
-- Client accedir amb l'usuari creat
-
-
-!!! dades pt10 fer lo del paper 
 
 ## Servidor Samba
 Un servidor Samba serveix per a compartir fitxers, impresores, carpetes a travès d'una autenticació a nivell usuari, ja sigui de Samba o de LDAP. Funciona tant en WIndows com en Ubuntu.
@@ -283,9 +272,6 @@ Instal·lem Samba amb la versió de client amb la comanda `apt install smbclient
 Anem als nostres arxius, seleccionem *Altres ubicacions* i a sota ens connectem al servidor escrivint smb://[IP_server]/carpeta.
 
 <img width="720" height="546" alt="image" src="https://github.com/user-attachments/assets/3ec2fcac-11ea-49c9-bdbb-0e1b0c419661" />
-
-
-!!! Accedir a la carpeta proves a travès de l'autenticacio d'usuaris ldap. alu1
 
 
 ## Servidor NFS
