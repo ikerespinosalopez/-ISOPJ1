@@ -1,6 +1,57 @@
 # Sprint 3: Administració de Dominis i Seguretat
 ## Instal·lació del domini LDAP i unir client al domini
-FER explicacions: Que es un domini, objectes del domini, necessita una ip fixa, bosc arbre, brancas de l'arbre
+### 1. Fonaments Teòrics del Domini
+
+Per a la correcta implementació del servidor LDAP/Active Directory, és necessari comprendre els següents conceptes clau sobre l'estructura i els requisits de xarxa.
+
+#### 1.1 Què és un Domini?
+Un **domini** és una agrupació lògica d'ordinadors, usuaris i altres recursos de xarxa que comparteixen una base de dades de directori centralitzada i una política de seguretat comuna.
+
+* **Centralització:** A diferència d'un grup de treball (Workgroup) on cada equip gestiona els seus usuaris, en un domini hi ha un servidor (Controlador de Domini) que autentica a tothom.
+* **Frontera de Seguretat:** L'administrador defineix les regles un sol cop i s'apliquen a tots els equips dins d'aquest "cercle de confiança".
+* **Single Sign-On (SSO):** Permet als usuaris iniciar sessió a qualsevol ordinador del domini amb les mateixes credencials.
+
+#### 1.2 Objectes del Domini
+El directori (la base de dades LDAP) està poblat per **objectes**. Cada objecte representa un recurs únic a la xarxa:
+
+* **Usuaris (Users):** Comptes assignats a persones físiques (ex: `jgarcia`). Contenen atributs com nom, cognom i contrasenya.
+* **Grups (Groups):** Col·leccions d'usuaris o equips. Serveixen per assignar permisos de manera massiva (ex: `Grup_Desenvolupadors`).
+* **Equips (Computers):** Representen les estacions de treball i servidors que s'han unit al domini. El domini gestiona tant la màquina com l'usuari.
+* **Unitats Organitzatives (OU):** Contenidors lògics (semblant a carpetes) que serveixen per organitzar altres objectes jeràrquicament (per departaments, ubicacions, etc.) i aplicar-hi polítiques (GPOs).
+
+---
+
+#### 1.3 Per què és necessària una IP Fixa?
+El servidor que actua com a Controlador de Domini (o servidor LDAP principal) **requereix obligatòriament una adreça IP estàtica** per raons crítiques d'infraestructura:
+
+1.  **Dependència del DNS:** Els clients del domini no busquen el servidor per nom aleatori, sinó que consulten el servidor DNS per trobar el servei LDAP/AD. El DNS ha d'apuntar a una adreça IP que no canviï mai.
+2.  **Visibilitat de la Xarxa:** Si el servidor utilitzés DHCP i la seva IP canviés, els clients perdrien la connexió amb el domini, impedint l'inici de sessió d'usuaris i l'accés a recursos compartits.
+3.  **Serveis vinculats:** Altres serveis (correu, impressores, aplicacions) es configuren apuntant a aquesta IP fixa.
+
+> **Resum:** El Controlador de Domini és la referència absoluta de la xarxa ("el far"). Si la seva posició (IP) canvia, els clients es perden.
+
+---
+
+#### 1.4 Estructura Lògica: Bosc, Arbre i Branques
+
+L'arquitectura de directori (especialment en Active Directory) s'organitza de manera jeràrquica per escalar en grans organitzacions.
+
+##### 🌳 L'Arbre (Tree)
+Un arbre és un conjunt d'un o més dominis que comparteixen un **espai de noms contigu** i estan enllaçats per relacions de confiança.
+* **Exemple:** Si el domini arrel és `empresa.com`, els dominis `vendes.empresa.com` i `it.empresa.com` formen part del mateix arbre perquè comparteixen el sufix.
+
+##### 🌲 El Bosc (Forest)
+És l'agrupació lògica més alta. Un bosc conté un o més arbres que comparteixen:
+* El mateix esquema de directori (definicions d'objectes).
+* El mateix catàleg global (cercador de tota la xarxa).
+* **Exemple:** Una fusió d'empreses podria tenir l'arbre `empresa.com` i l'arbre `adquisicio.net` dins del mateix bosc per compartir recursos.
+
+##### 🌿 Les Branques (Estructura LDAP)
+Dins d'un sol domini, l'estructura interna segueix el model d'un arbre invertit (estàndard X.500):
+1.  **Arrel (Root/DC):** La base del domini (ex: `dc=projecte,dc=local`).
+2.  **Branques (Branches/OU):** Les Unitats Organitzatives que ramifiquen l'estructura (ex: `ou=Sistemes`).
+3.  **Fulles (Leafs/CN):** Els objectes finals com usuaris o equips (ex: `cn=Admin`).
+
 
 Configurem una IP fixa al servidor.
 
