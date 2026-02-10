@@ -324,8 +324,73 @@ Anem als nostres arxius, seleccionem *Altres ubicacions* i a sota ens connectem 
 
 <img width="720" height="546" alt="image" src="https://github.com/user-attachments/assets/3ec2fcac-11ea-49c9-bdbb-0e1b0c419661" />
 
+!! Entregar comandes
 
 ## Servidor NFS
+
+És un protocol que permet compartir també fitxers i directoris (no impressores) a travès d'una xarxa local. L'autenticació és fa a nivell de host, no d'usuari, a diferènci de Samba. Poden accedir tant clients Windows com Linux.
+
+### Server
+#### Primer exercici NFS sense LDAP
+Primer instal·lem NFS amb la comanda `apt install nfs-server-kernel`.
+<img width="699" height="25" alt="image" src="https://github.com/user-attachments/assets/443e1ffd-8cd2-45d5-a462-d6b571f93214" />
+
+Creem la carpeta i li donem permisos.
+<img width="668" height="181" alt="image" src="https://github.com/user-attachments/assets/038d45cc-e610-4c31-9a4b-a970361d603d" />
+
+Ara editem l'arxiu /etc/exports i afegim la carpeta. Aquí es decideix a qui se li comparteix la carpeta i amb quins permisos, l'asterisc són tots els dispositius de la xarxa.
+<img width="891" height="286" alt="image" src="https://github.com/user-attachments/assets/4ce3a2d0-d760-4866-82bf-ef6d0c40c359" />
+
+Reiniciem el servei i comprovem l'estat.
+<img width="884" height="301" alt="image" src="https://github.com/user-attachments/assets/3b5e9f43-1347-4b1f-8446-cf08c4489764" />
+
+Creem unarxiu de prova per veure'l des del client.
+<img width="480" height="99" alt="image" src="https://github.com/user-attachments/assets/c1f21247-c45f-45d6-b3a0-1947781d9db8" />
+
+#### Segon exercici NFS 
+
+Creem la carpeta homes i dins la carpeta marcel i lis donem els permisos adients.
+<img width="706" height="204" alt="image" src="https://github.com/user-attachments/assets/8a66614e-a658-4a5e-bd24-a65dbb717ded" />
+
+Editem l'arxiu /etc/exports i afegim la nova línia amb la carpeta.
+<img width="881" height="290" alt="image" src="https://github.com/user-attachments/assets/6f917d24-a19a-4351-a2f6-6727993f23f5" />
+
+<img width="875" height="410" alt="image" src="https://github.com/user-attachments/assets/ef832f85-3544-4db6-bf0a-2498a8fea689" />
+
+
+<img width="794" height="462" alt="image" src="https://github.com/user-attachments/assets/d04b81e9-e282-4629-8236-f97b2596a375" />
+
+<img width="562" height="91" alt="image" src="https://github.com/user-attachments/assets/2c789562-20f3-4895-8d6c-864455434cb9" />
+
+
+### Client
+#### Primer exercici NFS sense LDAP
+
+Instal·lem el paquet NFS al client.
+<img width="746" height="21" alt="image" src="https://github.com/user-attachments/assets/eace8e7e-ec9b-435f-8ac0-d8ae828cfd9c" />
+
+Primer hem de crear una carpeta i donar-li permisos.
+<img width="654" height="202" alt="image" src="https://github.com/user-attachments/assets/87f4b649-666d-48a9-86af-d06e940dd058" />
+
+Fem ping al server per a comprovar que tenim connectivitat.
+<img width="639" height="208" alt="image" src="https://github.com/user-attachments/assets/b951d796-3ed0-4e5f-a8bb-0a3b3d214d72" />
+
+Editem el fitxer /etc/fstab i afegim la següent línia al final:
+<img width="976" height="356" alt="image" src="https://github.com/user-attachments/assets/5b5f715d-604d-40ac-a824-1e1b65e7a4b5" />
+
+Reiniciem pci comprovem que tenim l'arxiu amb ls /prova.
+<img width="597" height="174" alt="image" src="https://github.com/user-attachments/assets/981d0484-7f66-4c65-835d-95d129926020" />
+
+
+Instalar W10 11 
+windows nfs activar client nfs
+
+
+
+
+
+
+
 
 
 
