@@ -378,7 +378,7 @@ Fem ping al server per a comprovar que tenim connectivitat.
 Editem el fitxer /etc/fstab i afegim la següent línia al final:
 <img width="976" height="356" alt="image" src="https://github.com/user-attachments/assets/5b5f715d-604d-40ac-a824-1e1b65e7a4b5" />
 
-Reiniciem pci comprovem que tenim l'arxiu amb ls /prova.
+Reiniciem pc i comprovem que tenim l'arxiu amb ls /prova.
 <img width="597" height="174" alt="image" src="https://github.com/user-attachments/assets/981d0484-7f66-4c65-835d-95d129926020" />
 
 
