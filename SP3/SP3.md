@@ -382,15 +382,6 @@ Reiniciem pc i comprovem que tenim l'arxiu amb ls /prova.
 <img width="597" height="174" alt="image" src="https://github.com/user-attachments/assets/981d0484-7f66-4c65-835d-95d129926020" />
 
 
-Instalar W10 11 
-windows nfs activar client nfs
-
-
-
-
-
-
-
 
 
 
